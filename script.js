@@ -2,10 +2,10 @@
 // Typewriter Effect
 // ===========================
 const roles = [
-    '网络安全技术交付工程师',
-    'P9 资深工程师',
-    'PMP 认证 · 项目交付',
-    'CCIE · 网络安全',
+    'Cybersecurity Technical Delivery Engineer',
+    'P9 Senior Engineer',
+    'PMP-Certified Project Delivery',
+    'CCIE · Cybersecurity',
 ];
 let roleIndex = 0;
 let charIndex = 0;
@@ -131,92 +131,92 @@ window.addEventListener('scroll', revealOnScroll);
 window.addEventListener('load', revealOnScroll);
 
 // ===========================
-// Project Details Modal（项目详情模态框）
+// Project Details Modal
 // ===========================
 const projectData = {
     'project-1': {
-        title: '某地市 XX 局智慧项目 · 大数据安全体系建设',
-        status: '已完成终验（2022.12）',
+        title: 'Smart City XX Bureau Project ｜ Big Data Security Architecture',
+        status: 'Final Acceptance Passed (Dec 2022)',
         icon: '🏛️',
-        overview: '项目为大数据实战转型背景下的安全基础设施建设，公司承担零信任体系建设（安全策略与环境感知，2/6）、部分基础安全产品、安全服务平台以及安全管理中心的建设。',
+        overview: 'The project was a security infrastructure build under a big data transformation initiative. The company was responsible for the Zero Trust architecture (security policies and environment awareness, 2/6), foundational security products, a security service platform, and a security operations center.',
         highlights: [
-            '大数据安全体系建设符合部标要求，系统功能契合业务场景需求',
-            '项目共产生大小定制功能百余条，除与部标测评相关的需求外，其余均已按期交付',
+            'Big data security architecture met the requirements of the national standard, and the system functions aligned with business scenarios',
+            'The project generated over a hundred customized features, all delivered on schedule except those tied to the national-standard assessment',
         ],
         phases: [
             {
-                title: '安全技术工程师（2021.01 – 2021.12）',
+                title: 'Security Technical Engineer (Jan 2021 – Dec 2021)',
                 items: [
-                    '任职于项目交付小组，负责产品交付与定制功能更新',
-                    '向项目经理汇报部署调试进展，协调产品、研发与测试人员，确保需求有效落地',
+                    'Worked in the project delivery team, responsible for product delivery and customized feature updates',
+                    'Reported deployment and debugging progress to the project manager and coordinated product, R&D, and testing teams to ensure requirements were effectively delivered',
                 ],
             },
             {
-                title: '项目经理兼安全技术工程师（2021.12 – 2022.12）',
+                title: 'Project Manager & Security Technical Engineer (Dec 2021 – Dec 2022)',
                 items: [
-                    '初验后试运行阶段，原项目经理离场后独立承担主要职责',
-                    '对外直接与客户沟通改进需求、应对各项测评、对接各厂商',
-                    '对内与驻场人员密切配合，调度公司资源，保障系统试运行期间稳定运行',
+                    'During the post-initial-acceptance trial operation phase, took full responsibility after the original project manager departed',
+                    'Communicated directly with clients on improvement needs, addressed various assessments, and coordinated with multiple vendors',
+                    'Coordinated closely with on-site staff and allocated company resources to ensure stable system operation during trial',
                 ],
             },
         ],
     },
     'project-2': {
-        title: '某地市 XX 协调指挥平台项目',
-        status: '项目在建中',
+        title: 'XX Command & Coordination Platform Project',
+        status: 'Under Construction',
         icon: '🖥️',
-        overview: '项目为数字化建设背景下的平台建设，公司负责全套平台建设、部分等保安全建设以及部分商密安全建设。',
+        overview: 'The project focused on platform building under a digital transformation initiative. The company was responsible for building the full platform, along with parts of MLPS and commercial cryptography security.',
         highlights: [
-            '项目小组共 3 人（总包项目经理 1 人、监理 1 人、本人 1 人）',
-            '以项目经理兼安全交付工程师身份全程统筹推进',
+            'Project team consisted of 3 people (1 general contractor PM, 1 supervisor, and myself)',
+            'Served as Project Manager and Security Delivery Engineer, driving the project from start to finish',
         ],
         phases: [
             {
-                title: '项目经理兼安全交付工程师',
+                title: 'Project Manager & Security Delivery Engineer',
                 items: [
-                    '负责项目材料的输出与整理',
-                    '负责平台系统交付与定制功能沟通',
-                    '负责产品调试与功能完善',
+                    'Responsible for producing and organizing project documentation',
+                    'Responsible for platform system delivery and customized feature communication',
+                    'Responsible for product debugging and feature refinement',
                 ],
             },
         ],
     },
     'project-3': {
-        title: '某市级网络安全大赛筹备与命题',
-        status: '持续进行（2021 – 2026）',
+        title: 'Municipal Cybersecurity Competition Preparation & Question-Setting',
+        status: 'Ongoing (2021 – 2026)',
         icon: '🏆',
-        overview: '深度参与市级网络安全赛事的组织与命题工作，为行业人才培养与网络安全知识普及贡献力量。',
+        overview: 'Deeply involved in organizing and setting questions for municipal cybersecurity competitions, contributing to talent development and the promotion of cybersecurity knowledge.',
         highlights: [
-            '主导 2021–2026 年六届市级网络安全赛项的筹备与命题',
-            '协助乙、丙、丁地市开展赛事技术指导与命题',
+            'Led the preparation and question-setting of six editions of a municipal cybersecurity competition (2021–2026)',
+            'Provided technical guidance and question-setting for competitions in cities B, C, and D',
         ],
         phases: [
             {
-                title: '赛事组织与命题',
+                title: 'Event Organization & Question-Setting',
                 items: [
-                    '负责市级网络安全赛项的赛事筹备与命题工作',
-                    '为多地市赛事提供技术指导与命题支持',
-                    '持续以一线实战经验回馈行业与教育',
+                    'Responsible for the preparation and question-setting of municipal cybersecurity competitions',
+                    'Provided technical guidance and question-setting support for multi-city competitions',
+                    'Consistently giving back to industry and education with frontline practical experience',
                 ],
             },
         ],
     },
     'project-4': {
-        title: '多地市安全项目交付体系',
-        status: '日常运营中',
+        title: 'Multi-City Security Project Delivery System',
+        status: 'In Daily Operation',
         icon: '📦',
-        overview: '统筹多地市安全项目的交付、测试与售后协调，建立标准化交付流程，保障多项目并行交付的进度与质量。',
+        overview: 'Overseeing security project delivery, testing, and post-sales coordination across multiple cities, establishing a standardized delivery process to ensure the schedule and quality of parallel project delivery.',
         highlights: [
-            '统筹甲、乙、丙、丁四地市的安全项目交付、售前测试与售后协调',
-            '协助办事处达成每年千万级的市场盈利目标',
+            'Oversaw security project delivery, pre-sales testing, and post-sales coordination across four cities (A, B, C, D)',
+            'Helped the office achieve an annual ten-millions-level market revenue target',
         ],
         phases: [
             {
-                title: '区域交付统筹',
+                title: 'Regional Delivery Coordination',
                 items: [
-                    '建立标准化交付流程，提升交付效率与一致性',
-                    '协调多方资源，保障多项目并行交付的质量',
-                    '通过实践促进产品良性发展，反馈市场实际需求',
+                    'Established a standardized delivery process to improve delivery efficiency and consistency',
+                    'Coordinated multiple resources to ensure the quality of parallel project delivery',
+                    'Drove product improvement through practice and relaying real market needs',
                 ],
             },
         ],
@@ -239,14 +239,14 @@ function renderModal(key) {
             </div>
         </div>
         <div class="modal-section">
-            <h4>项目背景</h4>
+            <h4>Overview</h4>
             <p>${data.overview}</p>
         </div>
     `;
 
     if (data.highlights.length) {
         html += `<div class="modal-section">
-            <h4>项目亮点</h4>
+            <h4>Highlights</h4>
             <ul class="modal-list">`;
         data.highlights.forEach(item => {
             html += `<li>${item}</li>`;
@@ -286,14 +286,14 @@ function closeModal() {
 
 document.getElementById('modalClose').addEventListener('click', closeModal);
 
-// 点击遮罩关闭
+// Close on overlay click
 modal.addEventListener('click', (e) => {
     if (e.target === modal) {
         closeModal();
     }
 });
 
-// Esc 键关闭
+// Close on Escape key
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
         closeModal();

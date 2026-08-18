@@ -961,7 +961,7 @@ footer .heart {
 }
 
 /* ===========================
-    Resume Plus - Timeline (工作经历)
+    Resume Plus - Timeline (Experience)
     =========================== */
 .timeline {
     position: relative;
@@ -1037,7 +1037,7 @@ footer .heart {
 }
 
 /* ===========================
-    Certifications (证书资质)
+    Certifications
     =========================== */
 .certs-grid {
     display: grid;
@@ -1088,7 +1088,7 @@ footer .heart {
 }
 
 /* ===========================
-    Awards (企业获奖)
+    Awards
     =========================== */
 .awards-grid {
     display: grid;
@@ -1131,7 +1131,7 @@ footer .heart {
 }
 
 /* ===========================
-    Resume Plus - 双栏布局 (经历详情)
+    Resume Plus - Two-Column Layout (Experience Details)
     =========================== */
 .resume-grid {
     display: grid;
@@ -1194,7 +1194,7 @@ footer .heart {
 }
 
 /* ===========================
-    Project Detail Modal（项目详情模态框）
+    Project Detail Modal
     =========================== */
 .project-detail-btn {
     background: none;
