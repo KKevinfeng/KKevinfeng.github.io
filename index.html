@@ -3,963 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kevin - Personal Homepage</title>
-    <style>
-        /* ===========================
-            CSS Variables & Reset
-            =========================== */
-        :root {
-            --bg: #0a0a0f;
-            --bg-card: #12121a;
-            --bg-card-hover: #1a1a28;
-            --text: #e0e0e0;
-            --text-muted: #8888a0;
-            --accent: #6c5ce7;
-            --accent-2: #00cec9;
-            --accent-3: #fd79a8;
-            --border: #1e1e30;
-            --gradient: linear-gradient(135deg, var(--accent), var(--accent-2));
-            --gradient-2: linear-gradient(135deg, var(--accent-3), var(--accent));
-            --shadow: 0 4px 30px rgba(108, 92, 231, 0.15);
-            --radius: 16px;
-            --radius-sm: 10px;
-            --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.7;
-            overflow-x: hidden;
-        }
-
-        /* ===========================
-            Animated Background
-            =========================== */
-        .bg-glow {
-            position: fixed;
-            border-radius: 50%;
-            filter: blur(120px);
-            opacity: 0.15;
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        .bg-glow.g1 {
-            width: 600px;
-            height: 600px;
-            background: var(--accent);
-            top: -200px;
-            left: -150px;
-            animation: float1 15s ease-in-out infinite;
-        }
-
-        .bg-glow.g2 {
-            width: 500px;
-            height: 500px;
-            background: var(--accent-2);
-            bottom: -150px;
-            right: -100px;
-            animation: float2 18s ease-in-out infinite;
-        }
-
-        .bg-glow.g3 {
-            width: 400px;
-            height: 400px;
-            background: var(--accent-3);
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            animation: float3 20s ease-in-out infinite;
-        }
-
-        @keyframes float1 {
-            0%, 100% { transform: translate(0, 0); }
-            33% { transform: translate(80px, 60px); }
-            66% { transform: translate(-40px, -30px); }
-        }
-
-        @keyframes float2 {
-            0%, 100% { transform: translate(0, 0); }
-            33% { transform: translate(-60px, -80px); }
-            66% { transform: translate(30px, 50px); }
-        }
-
-        @keyframes float3 {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); }
-            50% { transform: translate(-50%, -50%) scale(1.3); }
-        }
-
-        /* Grid overlay */
-        .grid-overlay {
-            position: fixed;
-            inset: 0;
-            z-index: 0;
-            pointer-events: none;
-            opacity: 0.03;
-            background-image:
-                linear-gradient(var(--border) 1px, transparent 1px),
-                linear-gradient(90deg, var(--border) 1px, transparent 1px);
-            background-size: 60px 60px;
-        }
-
-        /* ===========================
-            Navigation
-            =========================== */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            background: rgba(10, 10, 15, 0.7);
-            border-bottom: 1px solid var(--border);
-            transition: all 0.3s;
-        }
-
-        .navbar.scrolled {
-            padding: 0.6rem 2rem;
-            background: rgba(10, 10, 15, 0.95);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .nav-logo {
-            font-family: var(--font-mono);
-            font-size: 1.4rem;
-            font-weight: 700;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: color 0.3s;
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--gradient);
-            transition: width 0.3s;
-            border-radius: 2px;
-        }
-
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--text);
-        }
-
-        .nav-links a:hover::after,
-        .nav-links a.active::after {
-            width: 100%;
-        }
-
-        .nav-toggle {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0.5rem;
-        }
-
-        .nav-toggle span {
-            display: block;
-            width: 24px;
-            height: 2px;
-            background: var(--text);
-            margin: 5px 0;
-            transition: 0.3s;
-            border-radius: 2px;
-        }
-
-        /* ===========================
-            Container
-            =========================== */
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* ===========================
-            Hero Section
-            =========================== */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-        }
-
-        .hero-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .hero-text .greeting {
-            font-family: var(--font-mono);
-            font-size: 1rem;
-            color: var(--accent-2);
-            margin-bottom: 1rem;
-            letter-spacing: 2px;
-        }
-
-        .hero-text h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            line-height: 1.15;
-            margin-bottom: 0.5rem;
-            background: linear-gradient(135deg, #fff 0%, #b0b0d0 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero-text .title {
-            font-size: 1.4rem;
-            color: var(--text-muted);
-            margin-bottom: 1.5rem;
-            font-weight: 400;
-        }
-
-        .hero-text .title .typewriter {
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 600;
-        }
-
-        .hero-text .bio {
-            font-size: 1.05rem;
-            color: var(--text-muted);
-            margin-bottom: 2rem;
-            max-width: 480px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.8rem 1.8rem;
-            border-radius: 50px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            text-decoration: none;
-            cursor: pointer;
-            border: none;
-            transition: all 0.3s;
-        }
-
-        .btn-primary {
-            background: var(--gradient);
-            color: #fff;
-            box-shadow: var(--shadow);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 40px rgba(108, 92, 231, 0.3);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--text);
-            border: 2px solid var(--border);
-        }
-
-        .btn-outline:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-            background: rgba(108, 92, 231, 0.05);
-        }
-
-        /* Avatar */
-        .hero-avatar {
-            display: flex;
-            justify-content: center;
-        }
-
-        .avatar-wrapper {
-            position: relative;
-            width: 300px;
-            height: 300px;
-        }
-
-        .avatar-ring {
-            position: absolute;
-            inset: -8px;
-            border-radius: 50%;
-            background: var(--gradient);
-            padding: 3px;
-            animation: rotate 8s linear infinite;
-        }
-
-        .avatar-ring::before {
-            content: '';
-            display: block;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background: var(--bg-card);
-        }
-
-        @keyframes rotate {
-            100% { transform: rotate(360deg); }
-        }
-
-        .avatar-img {
-            position: absolute;
-            inset: 4px;
-            border-radius: 50%;
-            background: var(--bg-card);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1;
-            overflow: hidden;
-        }
-
-        .avatar-placeholder {
-            font-size: 6rem;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* Tech stack pills floating */
-        .tech-pills {
-            position: absolute;
-            z-index: 2;
-        }
-
-        .tech-pill {
-            position: absolute;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-family: var(--font-mono);
-            color: var(--text-muted);
-            backdrop-filter: blur(10px);
-            white-space: nowrap;
-            transition: all 0.3s;
-        }
-
-        .tech-pill:hover {
-            border-color: var(--accent);
-            color: var(--text);
-            transform: scale(1.05);
-        }
-
-        .tech-pill:nth-child(1) { top: -10px; left: -30px; animation: pillFloat 5s ease-in-out infinite; }
-        .tech-pill:nth-child(2) { top: 20px; right: -50px; animation: pillFloat 6s ease-in-out infinite 0.5s; }
-        .tech-pill:nth-child(3) { bottom: 40px; left: -60px; animation: pillFloat 5.5s ease-in-out infinite 1s; }
-        .tech-pill:nth-child(4) { bottom: -10px; right: -20px; animation: pillFloat 6.5s ease-in-out infinite 1.5s; }
-
-        @keyframes pillFloat {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        /* Scroll indicator */
-        .scroll-indicator {
-            position: absolute;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--text-muted);
-            font-size: 0.75rem;
-            font-family: var(--font-mono);
-            letter-spacing: 2px;
-            animation: bounce 2s infinite;
-        }
-
-        .scroll-indicator .mouse {
-            width: 24px;
-            height: 38px;
-            border: 2px solid var(--text-muted);
-            border-radius: 14px;
-            position: relative;
-        }
-
-        .scroll-indicator .mouse::after {
-            content: '';
-            width: 4px;
-            height: 8px;
-            background: var(--accent);
-            border-radius: 2px;
-            position: absolute;
-            top: 6px;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: scrollWheel 2s infinite;
-        }
-
-        @keyframes scrollWheel {
-            0% { opacity: 1; top: 6px; }
-            100% { opacity: 0; top: 20px; }
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
-            40% { transform: translateX(-50%) translateY(-10px); }
-            60% { transform: translateX(-50%) translateY(-5px); }
-        }
-
-        /* ===========================
-            Sections
-            =========================== */
-        section {
-            padding: 6rem 0;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-tag {
-            font-family: var(--font-mono);
-            font-size: 0.8rem;
-            color: var(--accent-2);
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin-bottom: 0.8rem;
-        }
-
-        .section-header h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #fff, #b0b0d0);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .section-header .line {
-            width: 60px;
-            height: 4px;
-            background: var(--gradient);
-            border-radius: 2px;
-            margin: 1rem auto 0;
-        }
-
-        /* ===========================
-            About Section
-            =========================== */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .about-text p {
-            color: var(--text-muted);
-            margin-bottom: 1.5rem;
-            font-size: 1.02rem;
-        }
-
-        .stat-cards {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
-
-        .stat-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-sm);
-            padding: 1.5rem;
-            text-align: center;
-            transition: all 0.3s;
-        }
-
-        .stat-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-4px);
-            box-shadow: var(--shadow);
-        }
-
-        .stat-card .number {
-            font-size: 2.5rem;
-            font-weight: 800;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            display: block;
-        }
-
-        .stat-card .label {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            margin-top: 0.3rem;
-        }
-
-        /* ===========================
-            Skills Section
-            =========================== */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .skill-category {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 2rem;
-            transition: all 0.3s;
-        }
-
-        .skill-category:hover {
-            border-color: var(--accent);
-            transform: translateY(-4px);
-            box-shadow: var(--shadow);
-        }
-
-        .skill-category .category-icon {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .skill-category h3 {
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
-            color: var(--text);
-        }
-
-        .skill-items {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.6rem;
-        }
-
-        .skill-tag {
-            background: rgba(108, 92, 231, 0.1);
-            color: var(--accent);
-            padding: 0.4rem 1rem;
-            border-radius: 50px;
-            font-size: 0.82rem;
-            font-weight: 500;
-            border: 1px solid rgba(108, 92, 231, 0.2);
-            transition: all 0.3s;
-        }
-
-        .skill-tag:hover {
-            background: rgba(108, 92, 231, 0.2);
-            border-color: var(--accent);
-        }
-
-        .skill-category:nth-child(2) .skill-tag {
-            background: rgba(0, 206, 201, 0.1);
-            color: var(--accent-2);
-            border-color: rgba(0, 206, 201, 0.2);
-        }
-
-        .skill-category:nth-child(2) .skill-tag:hover {
-            background: rgba(0, 206, 201, 0.2);
-            border-color: var(--accent-2);
-        }
-
-        .skill-category:nth-child(3) .skill-tag {
-            background: rgba(253, 121, 168, 0.1);
-            color: var(--accent-3);
-            border-color: rgba(253, 121, 168, 0.2);
-        }
-
-        .skill-category:nth-child(3) .skill-tag:hover {
-            background: rgba(253, 121, 168, 0.2);
-            border-color: var(--accent-3);
-        }
-
-        /* ===========================
-            Projects Section
-            =========================== */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .project-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 2rem;
-            transition: all 0.3s;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .project-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-4px);
-            box-shadow: var(--shadow);
-            background: var(--bg-card-hover);
-        }
-
-        .project-card .project-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1.2rem;
-        }
-
-        .project-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.8rem;
-            color: var(--text);
-        }
-
-        .project-card p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            flex: 1;
-            margin-bottom: 1.2rem;
-        }
-
-        .project-card .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1.2rem;
-        }
-
-        .project-card .project-tech span {
-            font-size: 0.72rem;
-            font-family: var(--font-mono);
-            color: var(--accent-2);
-            background: rgba(0, 206, 201, 0.1);
-            padding: 0.2rem 0.7rem;
-            border-radius: 50px;
-        }
-
-        .project-card .project-link {
-            color: var(--accent);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.3rem;
-            transition: gap 0.3s;
-        }
-
-        .project-card .project-link:hover {
-            gap: 0.6rem;
-        }
-
-        .project-card.featured {
-            grid-column: 1 / -1;
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .project-preview {
-            background: linear-gradient(135deg, var(--accent), var(--accent-3));
-            border-radius: var(--radius-sm);
-            aspect-ratio: 16/10;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            opacity: 0.9;
-        }
-
-        /* ===========================
-            Contact Section
-            =========================== */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: start;
-        }
-
-        .contact-info h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .contact-info p {
-            color: var(--text-muted);
-            margin-bottom: 2rem;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .social-link {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            padding: 0.7rem 1.2rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 50px;
-            color: var(--text);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: all 0.3s;
-        }
-
-        .social-link:hover {
-            border-color: var(--accent);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow);
-        }
-
-        .contact-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 2rem;
-        }
-
-        .contact-card h3 {
-            margin-bottom: 1.5rem;
-            font-size: 1.2rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 0.8rem 0;
-            border-bottom: 1px solid var(--border);
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        .contact-item:last-child {
-            border-bottom: none;
-        }
-
-        .contact-item .ci-icon {
-            font-size: 1.3rem;
-        }
-
-        /* ===========================
-            Footer
-            =========================== */
-        footer {
-            text-align: center;
-            padding: 2rem;
-            border-top: 1px solid var(--border);
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        footer .heart {
-            color: var(--accent-3);
-            animation: heartbeat 1.5s ease-in-out infinite;
-            display: inline-block;
-        }
-
-        @keyframes heartbeat {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-        }
-
-        /* ===========================
-            Scroll Reveal
-            =========================== */
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
-        }
-
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* ===========================
-            Back to Top
-            =========================== */
-        .back-to-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            z-index: 50;
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            color: var(--text);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            opacity: 0;
-            transform: translateY(20px);
-            pointer-events: none;
-            transition: all 0.3s;
-        }
-
-        .back-to-top.show {
-            opacity: 1;
-            transform: translateY(0);
-            pointer-events: auto;
-        }
-
-        .back-to-top:hover {
-            border-color: var(--accent);
-            background: var(--accent);
-            color: #fff;
-        }
-
-        /* ===========================
-            Responsive
-            =========================== */
-        @media (max-width: 768px) {
-            .hero-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 2rem;
-            }
-
-            .hero-avatar {
-                order: -1;
-            }
-
-            .avatar-wrapper {
-                width: 200px;
-                height: 200px;
-            }
-
-            .avatar-placeholder {
-                font-size: 4rem;
-            }
-
-            .hero-text h1 {
-                font-size: 2.2rem;
-            }
-
-            .hero-text .title {
-                font-size: 1.1rem;
-            }
-
-            .hero-text .bio {
-                max-width: 100%;
-            }
-
-            .hero-buttons {
-                justify-content: center;
-            }
-
-            .tech-pills {
-                display: none;
-            }
-
-            .nav-links {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 70%;
-                height: 100vh;
-                background: var(--bg);
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                gap: 3rem;
-                transition: right 0.3s;
-                border-left: 1px solid var(--border);
-            }
-
-            .nav-links.open {
-                right: 0;
-            }
-
-            .nav-toggle {
-                display: block;
-                z-index: 101;
-            }
-
-            .about-grid,
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .project-card.featured {
-                grid-column: span 1;
-                grid-template-columns: 1fr;
-            }
-
-            .section-header h2 {
-                font-size: 1.8rem;
-            }
-
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <title>Kevin - 技术交付工程师</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Animated Background -->
@@ -972,11 +17,14 @@
     <nav class="navbar" id="navbar">
         <a href="#" class="nav-logo">&lt;Kevin /&gt;</a>
         <ul class="nav-links" id="navLinks">
-            <li><a href="#home" class="active">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#home" class="active">首页</a></li>
+            <li><a href="#about">关于我</a></li>
+            <li><a href="#experience">工作经历</a></li>
+            <li><a href="#projects">项目成果</a></li>
+            <li><a href="#certs">证书荣誉</a></li>
+            <li><a href="#community">社会贡献</a></li>
+            <li><a href="#skills">核心能力</a></li>
+            <li><a href="#contact">联系我</a></li>
         </ul>
         <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
             <span></span><span></span><span></span>
@@ -988,39 +36,39 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <p class="greeting">👋 Hi there, I'm</p>
+                    <p class="greeting">👋 你好，我是</p>
                     <h1>Kevin</h1>
                     <p class="title">
                         <span class="typewriter" id="typewriter"></span>
                     </p>
                     <p class="bio">
-                        A passionate software developer who loves building elegant solutions 
-                        to complex problems. Currently focused on full-stack web development 
-                        and cloud-native technologies.
+                        资深网络安全工程师 · 原厂项目经理（P9）。拥有 6 年网络安全行业从业经验，
+                        自初级工程师逐步成长至资深工程师，长期专注于安全基础设施建设、
+                        项目交付与项目管理，业务范围涵盖售前测试与售后支持。
                     </p>
                     <div class="hero-buttons">
-                        <a href="#projects" class="btn btn-primary">View My Work</a>
-                        <a href="#contact" class="btn btn-outline">Get In Touch</a>
+                        <a href="#experience" class="btn btn-primary">查看工作经历</a>
+                        <a href="#contact" class="btn btn-outline">联系我</a>
                     </div>
                 </div>
                 <div class="hero-avatar">
                     <div class="avatar-wrapper">
                         <div class="tech-pills">
-                            <span class="tech-pill">⚛️ React</span>
-                            <span class="tech-pill">🐍 Python</span>
-                            <span class="tech-pill">🐳 Docker</span>
-                            <span class="tech-pill">☁️ Cloud</span>
+                            <span class="tech-pill">🛡️ 网络安全</span>
+                            <span class="tech-pill">🛡️ 零信任</span>
+                            <span class="tech-pill">👑 CCIE</span>
+                            <span class="tech-pill">📋 PMP</span>
                         </div>
                         <div class="avatar-ring"></div>
                         <div class="avatar-img">
-                            <span class="avatar-placeholder">👨‍💻</span>
+                            <img src="assets/avatar.png" alt="Kevin 的头像" class="avatar-photo">
                         </div>
                     </div>
                 </div>
             </div>
             <div class="scroll-indicator">
                 <div class="mouse"></div>
-                <span>SCROLL</span>
+                <span>下滑</span>
             </div>
         </div>
     </section>
@@ -1029,97 +77,99 @@
     <section id="about">
         <div class="container">
             <div class="section-header reveal">
-                <p class="section-tag">About Me</p>
-                <h2>Get To Know Me</h2>
+                <p class="section-tag">关于我</p>
+                <h2>职业定位</h2>
                 <div class="line"></div>
             </div>
             <div class="about-grid">
                 <div class="about-text reveal">
                     <p>
-                        I'm a software developer with a passion for crafting clean, efficient, 
-                        and scalable code. With several years of experience in the industry, 
-                        I've worked on everything from small startups to large enterprise systems.
+                        我是一名深耕网络安全领域的原厂工程师与项目经理，目前就职于
+                        <span class="rb-highlight">某头部网络安全企业</span>。
+                        2020 年以实习生身份入行，五年内从初级工程师（P6）晋升至
+                        资深工程师（P9），并自 2022 年起担任某地市办事处技术负责人。
                     </p>
                     <p>
-                        When I'm not coding, you can find me exploring new technologies, 
-                        contributing to open-source projects, or sharing knowledge through 
-                        technical blog posts. I believe in continuous learning and the power 
-                        of community.
+                        我同时承担技术交付与项目管理工作，主导过党政机关及国有私营企业的
+                        千万级安全项目建设，业务覆盖<span class="rb-highlight">零信任、等保、
+                        商密、数据安全</span>等多个方向，工作贯穿安全产品交付、售前测试
+                        与售后支持的全流程。
                     </p>
                     <p>
-                        I'm always open to new opportunities and collaborations. 
-                        Let's build something amazing together!
+                        此外，我还担任职业院校外聘讲师，并参与省市级网络安全赛事命题工作，
+                        持续将一线实战经验回馈行业与教育事业。
                     </p>
                 </div>
                 <div class="stat-cards reveal">
                     <div class="stat-card">
-                        <span class="number">5+</span>
-                        <span class="label">Years Experience</span>
+                        <span class="number">6+</span>
+                        <span class="label">年行业经验</span>
                     </div>
                     <div class="stat-card">
-                        <span class="number">30+</span>
-                        <span class="label">Projects Completed</span>
+                        <span class="number">P9</span>
+                        <span class="label">资深工程师</span>
                     </div>
                     <div class="stat-card">
-                        <span class="number">15+</span>
-                        <span class="label">Technologies</span>
+                        <span class="number">2+2</span>
+                        <span class="label">千万/五百万级项目</span>
                     </div>
                     <div class="stat-card">
-                        <span class="number">500+</span>
-                        <span class="label">GitHub Contributions</span>
+                        <span class="number">6 届</span>
+                        <span class="label">市级大赛命题</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills">
+    <!-- Experience Timeline Section -->
+    <section id="experience">
         <div class="container">
             <div class="section-header reveal">
-                <p class="section-tag">Skills</p>
-                <h2>Technologies I Work With</h2>
+                <p class="section-tag">工作经历</p>
+                <h2>职业成长历程</h2>
                 <div class="line"></div>
             </div>
-            <div class="skills-grid">
-                <div class="skill-category reveal">
-                    <div class="category-icon">🎨</div>
-                    <h3>Frontend Development</h3>
-                    <div class="skill-items">
-                        <span class="skill-tag">React</span>
-                        <span class="skill-tag">TypeScript</span>
-                        <span class="skill-tag">Next.js</span>
-                        <span class="skill-tag">Vue.js</span>
-                        <span class="skill-tag">Tailwind CSS</span>
-                        <span class="skill-tag">HTML5/CSS3</span>
-                        <span class="skill-tag">Redux</span>
-                    </div>
+            <div class="timeline">
+                <div class="timeline-item reveal">
+                    <div class="tl-time">2020.11 - 至今</div>
+                    <h3>某头部网络安全企业｜原厂安全工程师</h3>
+                    <p class="tl-role">职级轨迹：实习生 → P6 初级工程师 → P9 资深工程师</p>
+                    <ul>
+                        <li>2021.07 由实习生正式转正，定级为 <span class="rb-highlight">P6（初级工程师）</span></li>
+                        <li>2025.07 晋升为 <span class="rb-highlight">P9（资深工程师）</span></li>
+                        <li>负责安全产品交付、售后与售前测试相关工作</li>
+                        <li>2022.03 起担任某地市办事处技术负责人</li>
+                    </ul>
                 </div>
-                <div class="skill-category reveal">
-                    <div class="category-icon">⚙️</div>
-                    <h3>Backend Development</h3>
-                    <div class="skill-items">
-                        <span class="skill-tag">Node.js</span>
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">Go</span>
-                        <span class="skill-tag">PostgreSQL</span>
-                        <span class="skill-tag">MongoDB</span>
-                        <span class="skill-tag">GraphQL</span>
-                        <span class="skill-tag">REST APIs</span>
-                    </div>
+                <div class="timeline-item reveal">
+                    <div class="tl-time">2022.03 - 至今</div>
+                    <h3>某地市办事处技术负责人</h3>
+                    <p class="tl-role">负责多地市安全项目交付协调</p>
+                    <ul>
+                        <li>统筹甲、乙、丙、丁四地市的项目交付、售前测试与售后协调工作</li>
+                        <li>协助办事处达成每年<span class="rb-highlight-num">千万级</span>的市场盈利目标</li>
+                        <li>通过项目实践促进公司产品良性发展，及时反馈市场实际需求</li>
+                    </ul>
                 </div>
-                <div class="skill-category reveal">
-                    <div class="category-icon">🛠️</div>
-                    <h3>DevOps & Tools</h3>
-                    <div class="skill-items">
-                        <span class="skill-tag">Docker</span>
-                        <span class="skill-tag">Kubernetes</span>
-                        <span class="skill-tag">AWS</span>
-                        <span class="skill-tag">CI/CD</span>
-                        <span class="skill-tag">Git</span>
-                        <span class="skill-tag">Linux</span>
-                        <span class="skill-tag">Terraform</span>
-                    </div>
+                <div class="timeline-item reveal">
+                    <div class="tl-time">2021 - 2026</div>
+                    <h3>原厂项目经理兼技术工程师</h3>
+                    <p class="tl-role">负责高价值安全项目交付</p>
+                    <ul>
+                        <li>负责党政机关<span class="rb-highlight-num">千万级</span>安全项目 2 个</li>
+                        <li>负责重点国私企<span class="rb-highlight-num">五百万级</span>安全项目 2 个</li>
+                        <li>兼管其他安全项目若干，涵盖交付、售后与售前测试</li>
+                    </ul>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="tl-time">2020.11 - 2021.06</div>
+                    <h3>实习生｜售后交付</h3>
+                    <p class="tl-role">某头部网络安全企业</p>
+                    <ul>
+                        <li>以实习生身份承担售后交付工作，快速掌握安全产品交付流程</li>
+                        <li>参与基础安全产品的部署、配置与客户支持工作</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -1129,78 +179,260 @@
     <section id="projects">
         <div class="container">
             <div class="section-header reveal">
-                <p class="section-tag">Projects</p>
-                <h2>What I've Built</h2>
+                <p class="section-tag">项目成果</p>
+                <h2>代表项目与成果</h2>
                 <div class="line"></div>
             </div>
             <div class="projects-grid">
-                <!-- Featured Project -->
-                <div class="project-card featured reveal">
-                    <div class="project-preview">🚀</div>
+                <!-- 项目一：智慧项目 -->
+                <div class="project-card featured reveal" data-project="project-1">
+                    <div class="project-preview">🏛️</div>
                     <div>
-                        <h3>Cloud Platform Dashboard</h3>
+                        <h3>某地市 XX 局智慧项目 · 大数据安全体系建设</h3>
                         <p>
-                            A comprehensive cloud resource management platform with real-time 
-                            monitoring, auto-scaling capabilities, and multi-cloud support. 
-                            Built for enterprise-grade infrastructure management.
+                            在大数据实战转型背景下，公司承担零信任体系建设、部分基础安全产品、
+                            安全服务平台以及安全管理中心建设。项目于 2022.12 完成终验，
+                            大数据安全体系建设符合部标要求。
                         </p>
                         <div class="project-tech">
-                            <span>React</span><span>Go</span><span>Kubernetes</span><span>AWS</span>
+                            <span>零信任</span><span>大数据安全</span><span>安全管理中心</span><span>部标验收</span>
                         </div>
-                        <a href="#" class="project-link">View Project →</a>
+                        <button class="project-link project-detail-btn" data-target="project-1">查看案例详情 →</button>
                     </div>
                 </div>
 
-                <div class="project-card reveal">
-                    <div class="project-icon">🤖</div>
-                    <h3>AI Code Assistant</h3>
+                <!-- 项目二：协调指挥平台 -->
+                <div class="project-card reveal" data-project="project-2">
+                    <div class="project-icon">🖥️</div>
+                    <h3>某地市 XX 协调指挥平台项目</h3>
                     <p>
-                        An intelligent code review and generation tool powered by large 
-                        language models. Supports multiple languages and IDE integrations.
+                        在数字化建设背景下，负责全套平台建设及部分等保与商密建设。
+                        担任项目经理兼安全交付工程师，统筹项目材料输出、平台交付与定制沟通等工作。
                     </p>
                     <div class="project-tech">
-                        <span>Python</span><span>FastAPI</span><span>OpenAI</span>
+                        <span>全套平台</span><span>等保</span><span>商密</span><span>3 人小组</span>
                     </div>
-                    <a href="#" class="project-link">View Project →</a>
+                    <button class="project-link project-detail-btn" data-target="project-2">查看案例详情 →</button>
                 </div>
 
-                <div class="project-card reveal">
-                    <div class="project-icon">📊</div>
-                    <h3>Real-time Analytics Engine</h3>
+                <!-- 项目三：网络安全大赛 -->
+                <div class="project-card reveal" data-project="project-3">
+                    <div class="project-icon">🏆</div>
+                    <h3>某市级网络安全大赛筹备与命题</h3>
                     <p>
-                        High-performance analytics pipeline processing millions of events 
-                        per second with sub-second query latency.
+                        主导 2021–2026 年六届市级网络安全赛项的筹备与命题工作，
+                        并协助乙、丙、丁地市开展赛事技术指导与命题工作。
                     </p>
                     <div class="project-tech">
-                        <span>Rust</span><span>ClickHouse</span><span>gRPC</span>
+                        <span>赛事筹备</span><span>命题</span><span>6 届</span><span>多地市指导</span>
                     </div>
-                    <a href="#" class="project-link">View Project →</a>
+                    <button class="project-link project-detail-btn" data-target="project-3">查看案例详情 →</button>
                 </div>
 
-                <div class="project-card reveal">
-                    <div class="project-icon">🔒</div>
-                    <h3>Security Scanner</h3>
+                <!-- 项目四：交付体系 -->
+                <div class="project-card reveal" data-project="project-4">
+                    <div class="project-icon">📦</div>
+                    <h3>多地市安全项目交付体系</h3>
                     <p>
-                        Automated vulnerability scanner for container images and cloud 
-                        infrastructure with CVE database integration.
+                        统筹甲、乙、丙、丁四地市的安全项目交付、售前测试与售后协调，
+                        建立标准化交付流程，协助办事处达成每年千万级的市场盈利目标。
                     </p>
                     <div class="project-tech">
-                        <span>Go</span><span>Docker</span><span>Trivy</span>
+                        <span>区域协调</span><span>标准化交付</span><span>售前测试</span>
                     </div>
-                    <a href="#" class="project-link">View Project →</a>
+                    <button class="project-link project-detail-btn" data-target="project-4">查看案例详情 →</button>
                 </div>
+            </div>
 
-                <div class="project-card reveal">
-                    <div class="project-icon">📱</div>
-                    <h3>Cross-platform Mobile App</h3>
-                    <p>
-                        A productivity app built with React Native featuring offline-first 
-                        architecture and real-time sync capabilities.
-                    </p>
-                    <div class="project-tech">
-                        <span>React Native</span><span>TypeScript</span><span>Firebase</span>
+            <!-- 项目详情模态框 -->
+            <div class="modal-overlay" id="projectModal">
+                <div class="modal-content">
+                    <button class="modal-close" id="modalClose" aria-label="关闭">×</button>
+                    <div id="modalBody"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certs & Awards Section -->
+    <section id="certs">
+        <div class="container">
+            <div class="section-header reveal">
+                <p class="section-tag">证书荣誉</p>
+                <h2>专业资质与荣誉</h2>
+                <div class="line"></div>
+            </div>
+            <div class="resume-grid">
+                <div class="resume-block reveal">
+                    <h3>🏅 专业证书</h3>
+                    <ul>
+                        <li><span class="rb-highlight">CCIE</span> — Enterprise Infrastructure（思科认证互联网专家）</li>
+                        <li><span class="rb-highlight">PMP</span> — Project Management Professional（项目管理专业人士）</li>
+                        <li><span class="rb-highlight">ITSS 服务项目经理</span> — IT 服务项目经理认证</li>
+                    </ul>
+                </div>
+                <div class="resume-block reveal">
+                    <h3>🌟 企业荣誉</h3>
+                    <ul>
+                        <li><span class="rb-highlight">优秀创新工程师</span>（2025）— 公司优秀员工</li>
+                        <li><span class="rb-highlight">公司奋斗者</span>（2024）</li>
+                        <li><span class="rb-highlight">降本增效奖</span>（2022）— 公司一级部门优秀员工</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="certs-grid" style="margin-top: 2rem;">
+                <div class="cert-card reveal">
+                    <div class="cert-icon">👑</div>
+                    <h3>CCIE</h3>
+                    <p class="cert-name">Enterprise Infrastructure</p>
+                    <span class="cert-badge">思科认证互联网专家</span>
+                </div>
+                <div class="cert-card reveal">
+                    <div class="cert-icon">📋</div>
+                    <h3>PMP</h3>
+                    <p class="cert-name">Project Management Professional</p>
+                    <span class="cert-badge">项目管理专业人士</span>
+                </div>
+                <div class="cert-card reveal">
+                    <div class="cert-icon">🛠️</div>
+                    <h3>ITSS</h3>
+                    <p class="cert-name">服务项目经理</p>
+                    <span class="cert-badge">IT 服务项目管理</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section id="community">
+        <div class="container">
+            <div class="section-header reveal">
+                <p class="section-tag">教学与社会贡献</p>
+                <h2>回馈行业与教育</h2>
+                <div class="line"></div>
+            </div>
+            <div class="resume-grid">
+                <div class="resume-block reveal">
+                    <h3>👨‍🏫 外聘讲师</h3>
+                    <ul>
+                        <li><span class="rb-highlight">2024.09 – 2025.07</span> · 某地市职业技术学院外聘讲师</li>
+                        <li>主讲《<span class="rb-highlight">企业安全建设实践</span>》</li>
+                        <li>主讲《<span class="rb-highlight">网络安全设备配置与应用</span>》</li>
+                    </ul>
+                </div>
+                <div class="resume-block reveal">
+                    <h3>🏆 赛事命题与指导</h3>
+                    <ul>
+                        <li>主导 <span class="rb-highlight">2021–2026 年六届</span>某市级网络安全赛项的筹备与命题</li>
+                        <li>协助乙、丙、丁地市开展赛事<span class="rb-highlight">技术指导与命题</span>工作</li>
+                        <li>持续将一线实战经验回馈于行业与教育事业</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <div class="section-header reveal">
+                <p class="section-tag">核心能力</p>
+                <h2>我的能力矩阵</h2>
+                <div class="line"></div>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category reveal">
+                    <div class="category-icon">📚</div>
+                    <h3>知识领域</h3>
+                    <div class="skill-items">
+                        <span class="skill-tag">掌握 · 安全产品</span>
+                        <span class="skill-tag">熟悉 · 数通网络</span>
+                        <span class="skill-tag">熟悉 · 主流安全领域</span>
+                        <span class="skill-tag">了解 · 数据库</span>
+                        <span class="skill-tag">了解 · 操作系统</span>
+                        <span class="skill-tag">了解 · 代码开发</span>
+                        <span class="skill-tag">了解 · TCP/IP</span>
+                        <span class="skill-tag">了解 · 服务器/硬件</span>
                     </div>
-                    <a href="#" class="project-link">View Project →</a>
+                </div>
+                <div class="skill-category reveal">
+                    <div class="category-icon">🛡️</div>
+                    <h3>安全产品与平台</h3>
+                    <div class="skill-items">
+                        <span class="skill-tag">NGFW / AC / WAF</span>
+                        <span class="skill-tag">APT / SOC</span>
+                        <span class="skill-tag">数据库审计 / USM</span>
+                        <span class="skill-tag">态势感知</span>
+                        <span class="skill-tag">KMS / VPN / 签名验签</span>
+                        <span class="skill-tag">服务器密码机</span>
+                        <span class="skill-tag">工控 FW / EDR</span>
+                        <span class="skill-tag">API 安全 / 网关</span>
+                        <span class="skill-tag">数据脱敏 / 存储加密</span>
+                        <span class="skill-tag">云安全</span>
+                    </div>
+                </div>
+                <div class="skill-category reveal">
+                    <div class="category-icon">📦</div>
+                    <h3>项目交付与管理</h3>
+                    <div class="skill-items">
+                        <span class="skill-tag">全栈交付</span>
+                        <span class="skill-tag">交付 / 培训 / 售后</span>
+                        <span class="skill-tag">售前测试</span>
+                        <span class="skill-tag">需求梳理</span>
+                        <span class="skill-tag">方案落地</span>
+                        <span class="skill-tag">验收交付</span>
+                        <span class="skill-tag">风险管理</span>
+                        <span class="skill-tag">多项目并行</span>
+                    </div>
+                </div>
+                <div class="skill-category reveal">
+                    <div class="category-icon">🤝</div>
+                    <h3>工具方法与软实力</h3>
+                    <div class="skill-items">
+                        <span class="skill-tag">PMP / ITSS 方法论</span>
+                        <span class="skill-tag">IT 办公工具</span>
+                        <span class="skill-tag">AI 工具</span>
+                        <span class="skill-tag">客户沟通</span>
+                        <span class="skill-tag">问题拆解</span>
+                        <span class="skill-tag">跨部门协调</span>
+                        <span class="skill-tag">持续学习</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Soft Skills Section -->
+    <section id="softskills">
+        <div class="container">
+            <div class="section-header reveal">
+                <p class="section-tag">职业素养</p>
+                <h2>专业之外的持续追求</h2>
+                <div class="line"></div>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category reveal">
+                    <div class="category-icon">🧠</div>
+                    <h3>问题解决</h3>
+                    <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 1rem;">
+                        临危不乱，善于拆解并分析问题、探寻解决路径，在复杂交付场景中保持冷静与理性判断。
+                    </p>
+                </div>
+                <div class="skill-category reveal">
+                    <div class="category-icon">💬</div>
+                    <h3>沟通协作</h3>
+                    <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 1rem;">
+                        具备良好的沟通能力，能够准确理解并把握客户的真实诉求，
+                        妥善协调厂商、开发与客户等多方关系。
+                    </p>
+                </div>
+                <div class="skill-category reveal">
+                    <div class="category-icon">🌱</div>
+                    <h3>自我驱动</h3>
+                    <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 1rem;">
+                        严于律己、每日三省吾身、坚持持续学习与进步，自初级一路成长为资深，
+                        并将实践经验不断回馈于产品与行业。
+                    </p>
                 </div>
             </div>
         </div>
@@ -1210,45 +442,35 @@
     <section id="contact">
         <div class="container">
             <div class="section-header reveal">
-                <p class="section-tag">Contact</p>
-                <h2>Let's Connect</h2>
+                <p class="section-tag">联系我</p>
+                <h2>保持联系</h2>
                 <div class="line"></div>
             </div>
             <div class="contact-grid">
                 <div class="contact-info reveal">
-                    <h3>Get In Touch</h3>
+                    <h3>取得联系</h3>
                     <p>
-                        I'm currently open to new opportunities and always happy to chat 
-                        about technology, collaboration, or just say hi!
+                        本人目前在职，始终对技术交流、行业合作与教学分享持开放态度，
+                        欢迎就网络安全交付、项目合作及赛事命题等话题随时与我联系。
                     </p>
                     <div class="social-links">
-                        <a href="https://github.com/kevin" class="social-link" target="_blank" rel="noopener">
+                        <a href="https://github.com/KKevinfeng" class="social-link" target="_blank" rel="noopener">
                             <span>🐙</span> GitHub
                         </a>
-                        <a href="https://linkedin.com/in/kevin" class="social-link" target="_blank" rel="noopener">
-                            <span>💼</span> LinkedIn
-                        </a>
-                        <a href="https://twitter.com/kevin" class="social-link" target="_blank" rel="noopener">
-                            <span>🐦</span> Twitter
-                        </a>
-                        <a href="mailto:kevin@example.com" class="social-link">
-                            <span>✉️</span> Email
+                        <a href="mailto:fengkaiyusunqian@gmail.com" class="social-link">
+                            <span>✉️</span> 邮箱
                         </a>
                     </div>
                 </div>
                 <div class="contact-card reveal">
-                    <h3>Contact Information</h3>
+                    <h3>联系信息</h3>
                     <div class="contact-item">
-                        <span class="ci-icon">📍</span>
-                        <span>Available for Remote Worldwide</span>
+                        <span class="ci-icon">🏢</span>
+                        <span>某头部网络安全企业</span>
                     </div>
                     <div class="contact-item">
                         <span class="ci-icon">📧</span>
-                        <span>kevin@example.com</span>
-                    </div>
-                    <div class="contact-item">
-                        <span class="ci-icon">💻</span>
-                        <span>github.com/kevin</span>
+                        <span>fengkaiyusunqian@gmail.com</span>
                     </div>
                 </div>
             </div>
@@ -1258,145 +480,13 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>Built with <span class="heart">♥</span> by Kevin &copy; 2026</p>
+            <p>&copy; 2026 Kevin · 资深网络安全工程师 · 原厂项目经理</p>
         </div>
     </footer>
 
     <!-- Back to Top Button -->
     <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
 
-    <script>
-        // ===========================
-        // Typewriter Effect
-        // ===========================
-        const roles = [
-            'Full-Stack Developer',
-            'Open Source Enthusiast',
-            'Cloud Native Engineer',
-            'Problem Solver',
-        ];
-        let roleIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        let typeSpeed = 100;
-
-        function typeLoop() {
-            const el = document.getElementById('typewriter');
-            const current = roles[roleIndex];
-
-            if (isDeleting) {
-                el.textContent = current.substring(0, charIndex - 1);
-                charIndex--;
-                typeSpeed = 50;
-            } else {
-                el.textContent = current.substring(0, charIndex + 1);
-                charIndex++;
-                typeSpeed = 100;
-            }
-
-            if (!isDeleting && charIndex === current.length) {
-                typeSpeed = 2000;
-                isDeleting = true;
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                roleIndex = (roleIndex + 1) % roles.length;
-                typeSpeed = 500;
-            }
-
-            setTimeout(typeLoop, typeSpeed);
-        }
-
-        typeLoop();
-
-        // ===========================
-        // Navbar Scroll Effect
-        // ===========================
-        const navbar = document.getElementById('navbar');
-        const backToTop = document.getElementById('backToTop');
-
-        window.addEventListener('scroll', () => {
-            const scrollY = window.scrollY;
-
-            // Navbar style
-            if (scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-
-            // Back to top button
-            if (scrollY > 500) {
-                backToTop.classList.add('show');
-            } else {
-                backToTop.classList.remove('show');
-            }
-
-            // Active nav link
-            updateActiveNavLink();
-        });
-
-        backToTop.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // ===========================
-        // Active Nav Link
-        // ===========================
-        function updateActiveNavLink() {
-            const sections = document.querySelectorAll('section[id]');
-            const navLinks = document.querySelectorAll('.nav-links a');
-            let current = '';
-
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 100;
-                if (window.scrollY >= sectionTop) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
-            });
-        }
-
-        // ===========================
-        // Mobile Menu Toggle
-        // ===========================
-        const navToggle = document.getElementById('navToggle');
-        const navLinks = document.getElementById('navLinks');
-
-        navToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('open');
-        });
-
-        // Close menu on link click
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('open');
-            });
-        });
-
-        // ===========================
-        // Scroll Reveal Animation
-        // ===========================
-        function revealOnScroll() {
-            const reveals = document.querySelectorAll('.reveal');
-            const windowHeight = window.innerHeight;
-            const revealPoint = 100;
-
-            reveals.forEach(el => {
-                const revealTop = el.getBoundingClientRect().top;
-                if (revealTop < windowHeight - revealPoint) {
-                    el.classList.add('visible');
-                }
-            });
-        }
-
-        window.addEventListener('scroll', revealOnScroll);
-        window.addEventListener('load', revealOnScroll);
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
