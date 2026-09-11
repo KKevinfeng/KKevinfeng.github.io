@@ -145,14 +145,14 @@ body {
 
 .nav-links {
     display: flex;
-    gap: 2rem;
+    gap: 1.4rem;
     list-style: none;
 }
 
 .nav-links a {
     color: var(--text-muted);
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 500;
     transition: color 0.3s;
     position: relative;
@@ -178,6 +178,51 @@ body {
 .nav-links a:hover::after,
 .nav-links a.active::after {
     width: 100%;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Language Switch */
+.lang-switch {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: rgba(108, 92, 231, 0.08);
+    border: 1px solid var(--border);
+    border-radius: 50px;
+    padding: 0.35rem 0.75rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.lang-switch:hover {
+    border-color: var(--accent);
+    background: rgba(108, 92, 231, 0.15);
+}
+
+.lang-code {
+    font-size: 0.78rem;
+    font-weight: 700;
+    font-family: var(--font-mono);
+    color: var(--text-muted);
+    transition: color 0.3s;
+}
+
+.lang-code.active {
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.lang-sep {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    opacity: 0.5;
 }
 
 .nav-toggle {
@@ -931,6 +976,10 @@ footer .heart {
         border-left: 1px solid var(--border);
     }
 
+    .nav-links a {
+        font-size: 1rem;
+    }
+
     .nav-links.open {
         right: 0;
     }
@@ -1348,5 +1397,73 @@ footer .heart {
     .modal-head {
         flex-direction: column;
         align-items: flex-start;
+    }
+}
+
+/* ===========================
+    Quotes Section（感悟/箴言）
+    =========================== */
+.quote-solo {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem 2.5rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    text-align: center;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+.quote-solo:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+}
+
+.quote-mark-big,
+.quote-mark-end {
+    display: inline-block;
+    font-size: 2.6rem;
+    line-height: 0;
+    vertical-align: -0.35em;
+    font-family: Georgia, 'Times New Roman', serif;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    opacity: 0.55;
+    font-weight: 700;
+}
+
+.quote-mark-big {
+    margin-right: 0.15em;
+}
+
+.quote-mark-end {
+    margin-left: 0.15em;
+}
+
+.quote-solo .quote-text {
+    font-size: 1.45rem;
+    line-height: 1.9;
+    font-style: italic;
+    color: var(--text);
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .quote-solo {
+        padding: 2rem 1.5rem;
+    }
+
+    .quote-solo .quote-text {
+        font-size: 1.15rem;
+    }
+
+    .quote-mark-big,
+    .quote-mark-end {
+        font-size: 1.8rem;
     }
 }

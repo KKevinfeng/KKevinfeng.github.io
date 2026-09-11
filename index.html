@@ -17,18 +17,26 @@
     <nav class="navbar" id="navbar">
         <a href="#" class="nav-logo">&lt;Kevin /&gt;</a>
         <ul class="nav-links" id="navLinks">
-            <li><a href="#home" class="active">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#certs">Certifications</a></li>
-            <li><a href="#community">Community</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#home" class="active" data-en="Home" data-zh="首页">Home</a></li>
+            <li><a href="#quotes" data-en="Insights" data-zh="感悟">Insights</a></li>
+            <li><a href="#about" data-en="About" data-zh="关于我">About</a></li>
+            <li><a href="#experience" data-en="Experience" data-zh="工作经历">Experience</a></li>
+            <li><a href="#projects" data-en="Projects" data-zh="项目">Projects</a></li>
+            <li><a href="#certs" data-en="Certifications" data-zh="证书荣誉">Certifications</a></li>
+            <li><a href="#community" data-en="Community" data-zh="社会贡献">Community</a></li>
+            <li><a href="#skills" data-en="Skills" data-zh="核心能力">Skills</a></li>
+            <li><a href="#contact" data-en="Contact" data-zh="联系我">Contact</a></li>
         </ul>
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-            <span></span><span></span><span></span>
-        </button>
+        <div class="nav-actions">
+            <button class="lang-switch" id="langSwitch" aria-label="Switch language">
+                <span class="lang-code active" data-lang="en">EN</span>
+                <span class="lang-sep">/</span>
+                <span class="lang-code" data-lang="zh">中</span>
+            </button>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
     </nav>
 
     <!-- Hero Section -->
@@ -36,28 +44,25 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <p class="greeting">👋 Hi, I'm</p>
+                    <p class="greeting" data-en="👋 Hi, I'm" data-zh="👋 你好，我是">👋 Hi, I'm</p>
                     <h1>Kevin</h1>
                     <p class="title">
                         <span class="typewriter" id="typewriter"></span>
                     </p>
-                    <p class="bio">
-                        Senior Cybersecurity Engineer and Vendor Project Manager (P9), with 6 years of
-                        experience in the cybersecurity industry. I have grown from a junior engineer to a
-                        senior engineer, focusing on security infrastructure implementation, project delivery,
-                        and project management, with responsibilities spanning pre-sales testing and
-                        post-sales support.
+                    <p class="bio" data-en="Senior Cybersecurity Engineer and Vendor Project Manager (P9), with 6 years of experience in the cybersecurity industry. I have grown from a junior engineer to a senior engineer, focusing on security infrastructure implementation, project delivery, and project management, with responsibilities spanning pre-sales testing and post-sales support."
+                       data-zh="资深网络安全工程师 · 原厂项目经理（P9）。拥有 6 年网络安全行业从业经验，自初级工程师逐步成长至资深工程师，长期专注于安全基础设施建设、项目交付与项目管理，业务范围涵盖售前测试与售后支持。">
+                        Senior Cybersecurity Engineer and Vendor Project Manager (P9), with 6 years of experience in the cybersecurity industry. I have grown from a junior engineer to a senior engineer, focusing on security infrastructure implementation, project delivery, and project management, with responsibilities spanning pre-sales testing and post-sales support.
                     </p>
                     <div class="hero-buttons">
-                        <a href="#experience" class="btn btn-primary">View Experience</a>
-                        <a href="#contact" class="btn btn-outline">Contact Me</a>
+                        <a href="#experience" class="btn btn-primary" data-en="View Experience" data-zh="查看工作经历">View Experience</a>
+                        <a href="#contact" class="btn btn-outline" data-en="Contact Me" data-zh="联系我">Contact Me</a>
                     </div>
                 </div>
                 <div class="hero-avatar">
                     <div class="avatar-wrapper">
                         <div class="tech-pills">
-                            <span class="tech-pill">🛡️ Cybersecurity</span>
-                            <span class="tech-pill">🛡️ Zero Trust</span>
+                            <span class="tech-pill" data-en="🛡️ Cybersecurity" data-zh="🛡️ 网络安全">🛡️ Cybersecurity</span>
+                            <span class="tech-pill" data-en="🛡️ Zero Trust" data-zh="🛡️ 零信任">🛡️ Zero Trust</span>
                             <span class="tech-pill">👑 CCIE</span>
                             <span class="tech-pill">📋 PMP</span>
                         </div>
@@ -70,8 +75,26 @@
             </div>
             <div class="scroll-indicator">
                 <div class="mouse"></div>
-                <span>SCROLL</span>
+                <span data-en="SCROLL" data-zh="下滑">SCROLL</span>
             </div>
+        </div>
+    </section>
+
+    <!-- Quotes Section -->
+    <section id="quotes">
+        <div class="container">
+            <div class="section-header reveal">
+                <p class="section-tag" data-en="Insights" data-zh="感悟">Insights</p>
+                <div class="line"></div>
+            </div>
+            <blockquote class="quote-solo reveal">
+                <p class="quote-text">
+                    <span class="quote-mark-big">&ldquo;</span>
+                    <span data-en="Project management is, first and foremost, a philosophy — and only secondarily, a discipline of management."
+                          data-zh="项目管理首先是哲学，其次是管理学。">Project management is, first and foremost, a philosophy — and only secondarily, a discipline of management.</span>
+                    <span class="quote-mark-end">&rdquo;</span>
+                </p>
+            </blockquote>
         </div>
     </section>
 
@@ -79,48 +102,41 @@
     <section id="about">
         <div class="container">
             <div class="section-header reveal">
-                <p class="section-tag">About</p>
-                <h2>Professional Profile</h2>
+                <p class="section-tag" data-en="About" data-zh="关于我">About</p>
+                <h2 data-en="Professional Profile" data-zh="职业定位">Professional Profile</h2>
                 <div class="line"></div>
             </div>
             <div class="about-grid">
                 <div class="about-text reveal">
-                    <p>
-                        I am a vendor engineer and project manager with deep expertise in the cybersecurity
-                        field, currently employed at a <span class="rb-highlight">leading cybersecurity company</span>.
-                        I entered the industry as an intern in 2020 and was promoted from Junior Engineer (P6)
-                        to Senior Engineer (P9) within five years. Since 2022, I have served as the Technical
-                        Lead of a regional office.
+                    <p data-en="I am a vendor engineer and project manager with deep expertise in the cybersecurity field, currently employed at a leading cybersecurity company. I entered the industry as an intern in 2020 and was promoted from Junior Engineer (P6) to Senior Engineer (P9) within five years. Since 2022, I have served as the Technical Lead of a regional office."
+                       data-zh="我是一名深耕网络安全领域的原厂工程师与项目经理，目前就职于某头部网络安全企业。2020 年以实习生身份入行，五年内从初级工程师（P6）晋升至资深工程师（P9），并自 2022 年起担任某地市办事处技术负责人。">
+                        I am a vendor engineer and project manager with deep expertise in the cybersecurity field, currently employed at a <span class="rb-highlight">leading cybersecurity company</span>. I entered the industry as an intern in 2020 and was promoted from Junior Engineer (P6) to Senior Engineer (P9) within five years. Since 2022, I have served as the Technical Lead of a regional office.
                     </p>
-                    <p>
-                        I handle both technical delivery and project management, leading tens-of-millions-level
-                        security projects for government agencies and state-owned/private enterprises. My work
-                        spans multiple domains, including <span class="rb-highlight">Zero Trust, MLPS (classified
-                        protection), commercial cryptography, and data security</span>, covering the full lifecycle
-                        of security product delivery, pre-sales testing, and post-sales support.
+                    <p data-en="I handle both technical delivery and project management, leading tens-of-millions-level security projects for government agencies and state-owned/private enterprises. My work spans multiple domains, including Zero Trust, MLPS (classified protection), commercial cryptography, and data security, covering the full lifecycle of security product delivery, pre-sales testing, and post-sales support."
+                       data-zh="我同时承担技术交付与项目管理工作，主导过党政机关及国有私营企业的千万级安全项目建设，业务覆盖零信任、等保、商密、数据安全等多个方向，工作贯穿安全产品交付、售前测试与售后支持的全流程。">
+                        I handle both technical delivery and project management, leading tens-of-millions-level security projects for government agencies and state-owned/private enterprises. My work spans multiple domains, including <span class="rb-highlight">Zero Trust, MLPS (classified protection), commercial cryptography, and data security</span>, covering the full lifecycle of security product delivery, pre-sales testing, and post-sales support.
                     </p>
-                    <p>
-                        In addition, I serve as an external lecturer at a vocational college and participate in
-                        question-setting for provincial and municipal cybersecurity competitions, consistently
-                        giving back to the industry and education with my frontline practical experience.
+                    <p data-en="In addition, I serve as an external lecturer at a vocational college and participate in question-setting for provincial and municipal cybersecurity competitions, consistently giving back to the industry and education with my frontline practical experience."
+                       data-zh="此外，我还担任职业院校外聘讲师，并参与省市级网络安全赛事命题工作，持续将一线实战经验回馈行业与教育事业。">
+                        In addition, I serve as an external lecturer at a vocational college and participate in question-setting for provincial and municipal cybersecurity competitions, consistently giving back to the industry and education with my frontline practical experience.
                     </p>
                 </div>
                 <div class="stat-cards reveal">
                     <div class="stat-card">
                         <span class="number">6+</span>
-                        <span class="label">Years in Industry</span>
+                        <span class="label" data-en="Years in Industry" data-zh="年行业经验">Years in Industry</span>
                     </div>
                     <div class="stat-card">
                         <span class="number">P9</span>
-                        <span class="label">Senior Engineer</span>
+                        <span class="label" data-en="Senior Engineer" data-zh="资深工程师">Senior Engineer</span>
                     </div>
                     <div class="stat-card">
                         <span class="number">2+2</span>
-                        <span class="label">10M/5M-level Projects</span>
+                        <span class="label" data-en="10M/5M-level Projects" data-zh="千万/五百万级项目">10M/5M-level Projects</span>
                     </div>
                     <div class="stat-card">
                         <span class="number">6</span>
-                        <span class="label">Competitions Hosted</span>
+                        <span class="label" data-en="Competitions Hosted" data-zh="市级大赛命题">Competitions Hosted</span>
                     </div>
                 </div>
             </div>
@@ -131,49 +147,64 @@
     <section id="experience">
         <div class="container">
             <div class="section-header reveal">
-                <p class="section-tag">Experience</p>
-                <h2>Career Growth Journey</h2>
+                <p class="section-tag" data-en="Experience" data-zh="工作经历">Experience</p>
+                <h2 data-en="Career Growth Journey" data-zh="职业成长历程">Career Growth Journey</h2>
                 <div class="line"></div>
             </div>
             <div class="timeline">
                 <div class="timeline-item reveal">
-                    <div class="tl-time">Nov 2020 - Present</div>
-                    <h3>Leading Cybersecurity Company ｜ Vendor Security Engineer</h3>
-                    <p class="tl-role">Career path: Intern → P6 Junior Engineer → P9 Senior Engineer</p>
+                    <div class="tl-time" data-en="Nov 2020 - Present" data-zh="2020.11 - 至今">Nov 2020 - Present</div>
+                    <h3 data-en="Leading Cybersecurity Company ｜ Vendor Security Engineer"
+                        data-zh="某头部网络安全企业｜原厂安全工程师">Leading Cybersecurity Company ｜ Vendor Security Engineer</h3>
+                    <p class="tl-role" data-en="Career path: Intern → P6 Junior Engineer → P9 Senior Engineer"
+                       data-zh="职级轨迹：实习生 → P6 初级工程师 → P9 资深工程师">Career path: Intern → P6 Junior Engineer → P9 Senior Engineer</p>
                     <ul>
-                        <li>Officially converted from intern to <span class="rb-highlight">P6 (Junior Engineer)</span> in Jul 2021</li>
-                        <li>Promoted to <span class="rb-highlight">P9 (Senior Engineer)</span> in Jul 2025</li>
-                        <li>Responsible for security product delivery, post-sales support, and pre-sales testing</li>
-                        <li>Served as Technical Lead of a regional office since Mar 2022</li>
+                        <li data-en="Officially converted from intern to P6 (Junior Engineer) in Jul 2021"
+                            data-zh="2021.07 由实习生正式转正，定级为 P6（初级工程师）">Officially converted from intern to <span class="rb-highlight">P6 (Junior Engineer)</span> in Jul 2021</li>
+                        <li data-en="Promoted to P9 (Senior Engineer) in Jul 2025"
+                            data-zh="2025.07 晋升为 P9（资深工程师）">Promoted to <span class="rb-highlight">P9 (Senior Engineer)</span> in Jul 2025</li>
+                        <li data-en="Responsible for security product delivery, post-sales support, and pre-sales testing"
+                            data-zh="负责安全产品交付、售后与售前测试相关工作">Responsible for security product delivery, post-sales support, and pre-sales testing</li>
+                        <li data-en="Served as Technical Lead of a regional office since Mar 2022"
+                            data-zh="2022.03 起担任某地市办事处技术负责人">Served as Technical Lead of a regional office since Mar 2022</li>
                     </ul>
                 </div>
                 <div class="timeline-item reveal">
-                    <div class="tl-time">Mar 2022 - Present</div>
-                    <h3>Technical Lead, Regional Office</h3>
-                    <p class="tl-role">Coordinating security project delivery across multiple cities</p>
+                    <div class="tl-time" data-en="Mar 2022 - Present" data-zh="2022.03 - 至今">Mar 2022 - Present</div>
+                    <h3 data-en="Technical Lead, Regional Office" data-zh="某地市办事处技术负责人">Technical Lead, Regional Office</h3>
+                    <p class="tl-role" data-en="Coordinating security project delivery across multiple cities"
+                       data-zh="负责多地市安全项目交付协调">Coordinating security project delivery across multiple cities</p>
                     <ul>
-                        <li>Overseeing project delivery, pre-sales testing, and post-sales coordination across four cities (A, B, C, D)</li>
-                        <li>Supporting the office in achieving an annual <span class="rb-highlight-num">ten-millions-level</span> market revenue target</li>
-                        <li>Driving product improvement through project practice and relaying real market needs</li>
+                        <li data-en="Overseeing project delivery, pre-sales testing, and post-sales coordination across four cities (A, B, C, D)"
+                            data-zh="统筹甲、乙、丙、丁四地市的项目交付、售前测试与售后协调工作">Overseeing project delivery, pre-sales testing, and post-sales coordination across four cities (A, B, C, D)</li>
+                        <li data-en="Supporting the office in achieving an annual ten-millions-level market revenue target"
+                            data-zh="协助办事处达成每年千万级的市场盈利目标">Supporting the office in achieving an annual <span class="rb-highlight-num">ten-millions-level</span> market revenue target</li>
+                        <li data-en="Driving product improvement through project practice and relaying real market needs"
+                            data-zh="通过项目实践促进公司产品良性发展，及时反馈市场实际需求">Driving product improvement through project practice and relaying real market needs</li>
                     </ul>
                 </div>
                 <div class="timeline-item reveal">
-                    <div class="tl-time">2021 - 2026</div>
-                    <h3>Vendor Project Manager &amp; Technical Engineer</h3>
-                    <p class="tl-role">Delivering high-value security projects</p>
+                    <div class="tl-time" data-en="2021 - 2026" data-zh="2021 - 2026">2021 - 2026</div>
+                    <h3 data-en="Vendor Project Manager &amp; Technical Engineer" data-zh="原厂项目经理兼技术工程师">Vendor Project Manager &amp; Technical Engineer</h3>
+                    <p class="tl-role" data-en="Delivering high-value security projects" data-zh="负责高价值安全项目交付">Delivering high-value security projects</p>
                     <ul>
-                        <li>Led <span class="rb-highlight-num">ten-millions-level</span> security projects (2) for government agencies</li>
-                        <li>Led <span class="rb-highlight-num">five-millions-level</span> security projects (2) for key state-owned/private enterprises</li>
-                        <li>Managed various other security projects, covering delivery, post-sales support, and pre-sales testing</li>
+                        <li data-en="Led ten-millions-level security projects (2) for government agencies"
+                            data-zh="负责党政机关千万级安全项目 2 个">Led <span class="rb-highlight-num">ten-millions-level</span> security projects (2) for government agencies</li>
+                        <li data-en="Led five-millions-level security projects (2) for key state-owned/private enterprises"
+                            data-zh="负责重点国私企五百万级安全项目 2 个">Led <span class="rb-highlight-num">five-millions-level</span> security projects (2) for key state-owned/private enterprises</li>
+                        <li data-en="Managed various other security projects, covering delivery, post-sales support, and pre-sales testing"
+                            data-zh="兼管其他安全项目若干，涵盖交付、售后与售前测试">Managed various other security projects, covering delivery, post-sales support, and pre-sales testing</li>
                     </ul>
                 </div>
                 <div class="timeline-item reveal">
-                    <div class="tl-time">Nov 2020 - Jun 2021</div>
-                    <h3>Intern ｜ Post-Sales Delivery</h3>
-                    <p class="tl-role">Leading Cybersecurity Company</p>
+                    <div class="tl-time" data-en="Nov 2020 - Jun 2021" data-zh="2020.11 - 2021.06">Nov 2020 - Jun 2021</div>
+                    <h3 data-en="Intern ｜ Post-Sales Delivery" data-zh="实习生｜售后交付">Intern ｜ Post-Sales Delivery</h3>
+                    <p class="tl-role" data-en="Leading Cybersecurity Company" data-zh="某头部网络安全企业">Leading Cybersecurity Company</p>
                     <ul>
-                        <li>Took on post-sales delivery tasks as an intern and quickly mastered the security product delivery process</li>
-                        <li>Participated in the deployment, configuration, and customer support of foundational security products</li>
+                        <li data-en="Took on post-sales delivery tasks as an intern and quickly mastered the security product delivery process"
+                            data-zh="以实习生身份承担售后交付工作，快速掌握安全产品交付流程">Took on post-sales delivery tasks as an intern and quickly mastered the security product delivery process</li>
+                        <li data-en="Participated in the deployment, configuration, and customer support of foundational security products"
+                            data-zh="参与基础安全产品的部署、配置与客户支持工作">Participated in the deployment, configuration, and customer support of foundational security products</li>
                     </ul>
                 </div>
             </div>
@@ -184,8 +215,8 @@
     <section id="projects">
         <div class="container">
             <div class="section-header reveal">
-                <p class="section-tag">Projects</p>
-                <h2>Representative Projects &amp; Outcomes</h2>
+                <p class="section-tag" data-en="Projects" data-zh="项目成果">Projects</p>
+                <h2 data-en="Representative Projects &amp; Outcomes" data-zh="代表项目与成果">Representative Projects &amp; Outcomes</h2>
                 <div class="line"></div>
             </div>
             <div class="projects-grid">
@@ -193,64 +224,60 @@
                 <div class="project-card featured reveal" data-project="project-1">
                     <div class="project-preview">🏛️</div>
                     <div>
-                        <h3>Smart City XX Bureau Project ｜ Big Data Security Architecture</h3>
-                        <p>
-                            Against the backdrop of big data transformation, the company built the Zero Trust
-                            architecture, foundational security products, a security service platform, and a
-                            security operations center. The project passed final acceptance in Dec 2022,
-                            meeting the requirements of the national standard.
+                        <h3 data-en="Smart City XX Bureau Project ｜ Big Data Security Architecture"
+                            data-zh="某地市 XX 局智慧项目 · 大数据安全体系建设">Smart City XX Bureau Project ｜ Big Data Security Architecture</h3>
+                        <p data-en="Against the backdrop of big data transformation, the company built the Zero Trust architecture, foundational security products, a security service platform, and a security operations center. The project passed final acceptance in Dec 2022, meeting the requirements of the national standard."
+                           data-zh="在大数据实战转型背景下，公司承担零信任体系建设、部分基础安全产品、安全服务平台以及安全管理中心建设。项目于 2022.12 完成终验，大数据安全体系建设符合部标要求。">
+                            Against the backdrop of big data transformation, the company built the Zero Trust architecture, foundational security products, a security service platform, and a security operations center. The project passed final acceptance in Dec 2022, meeting the requirements of the national standard.
                         </p>
                         <div class="project-tech">
-                            <span>Zero Trust</span><span>Big Data Security</span><span>SOC</span><span>Standard Acceptance</span>
+                            <span data-en="Zero Trust" data-zh="零信任">Zero Trust</span><span data-en="Big Data Security" data-zh="大数据安全">Big Data Security</span><span data-en="SOC" data-zh="安全管理中心">SOC</span><span data-en="Standard Acceptance" data-zh="部标验收">Standard Acceptance</span>
                         </div>
-                        <button class="project-link project-detail-btn" data-target="project-1">View Case Details →</button>
+                        <button class="project-link project-detail-btn" data-target="project-1" data-en="View Case Details →" data-zh="查看案例详情 →">View Case Details →</button>
                     </div>
                 </div>
 
                 <!-- Project 2: Command & Coordination Platform -->
                 <div class="project-card reveal" data-project="project-2">
                     <div class="project-icon">🖥️</div>
-                    <h3>XX Command &amp; Coordination Platform Project</h3>
-                    <p>
-                        Under the digital transformation initiative, I was responsible for building the full
-                        platform, along with parts of MLPS and commercial cryptography. As Project Manager and
-                        Security Delivery Engineer, I coordinated project documentation, platform delivery,
-                        and customization communication.
+                    <h3 data-en="XX Command &amp; Coordination Platform Project" data-zh="某地市 XX 协调指挥平台项目">XX Command &amp; Coordination Platform Project</h3>
+                    <p data-en="Under the digital transformation initiative, I was responsible for building the full platform, along with parts of MLPS and commercial cryptography. As Project Manager and Security Delivery Engineer, I coordinated project documentation, platform delivery, and customization communication."
+                       data-zh="在数字化建设背景下，负责全套平台建设及部分等保与商密建设。担任项目经理兼安全交付工程师，统筹项目材料输出、平台交付与定制沟通等工作。">
+                        Under the digital transformation initiative, I was responsible for building the full platform, along with parts of MLPS and commercial cryptography. As Project Manager and Security Delivery Engineer, I coordinated project documentation, platform delivery, and customization communication.
                     </p>
                     <div class="project-tech">
-                        <span>Full Platform</span><span>MLPS</span><span>Commercial Crypto</span><span>3-Person Team</span>
+                        <span data-en="Full Platform" data-zh="全套平台">Full Platform</span><span data-en="MLPS" data-zh="等保">MLPS</span><span data-en="Commercial Crypto" data-zh="商密">Commercial Crypto</span><span data-en="3-Person Team" data-zh="3 人小组">3-Person Team</span>
                     </div>
-                    <button class="project-link project-detail-btn" data-target="project-2">View Case Details →</button>
+                    <button class="project-link project-detail-btn" data-target="project-2" data-en="View Case Details →" data-zh="查看案例详情 →">View Case Details →</button>
                 </div>
 
                 <!-- Project 3: Cybersecurity Competition -->
                 <div class="project-card reveal" data-project="project-3">
                     <div class="project-icon">🏆</div>
-                    <h3>Municipal Cybersecurity Competition Preparation &amp; Question-Setting</h3>
-                    <p>
-                        Led the preparation and question-setting for six editions of a municipal cybersecurity
-                        competition (2021–2026), and provided technical guidance and question-setting support
-                        for competitions in cities B, C, and D.
+                    <h3 data-en="Municipal Cybersecurity Competition Preparation &amp; Question-Setting"
+                        data-zh="某市级网络安全大赛筹备与命题">Municipal Cybersecurity Competition Preparation &amp; Question-Setting</h3>
+                    <p data-en="Led the preparation and question-setting for six editions of a municipal cybersecurity competition (2021–2026), and provided technical guidance and question-setting support for competitions in cities B, C, and D."
+                       data-zh="主导 2021–2026 年六届市级网络安全赛项的筹备与命题工作，并协助乙、丙、丁地市开展赛事技术指导与命题工作。">
+                        Led the preparation and question-setting for six editions of a municipal cybersecurity competition (2021–2026), and provided technical guidance and question-setting support for competitions in cities B, C, and D.
                     </p>
                     <div class="project-tech">
-                        <span>Event Preparation</span><span>Question-Setting</span><span>6 Editions</span><span>Multi-City Support</span>
+                        <span data-en="Event Preparation" data-zh="赛事筹备">Event Preparation</span><span data-en="Question-Setting" data-zh="命题">Question-Setting</span><span data-en="6 Editions" data-zh="6 届">6 Editions</span><span data-en="Multi-City Support" data-zh="多地市指导">Multi-City Support</span>
                     </div>
-                    <button class="project-link project-detail-btn" data-target="project-3">View Case Details →</button>
+                    <button class="project-link project-detail-btn" data-target="project-3" data-en="View Case Details →" data-zh="查看案例详情 →">View Case Details →</button>
                 </div>
 
                 <!-- Project 4: Delivery System -->
                 <div class="project-card reveal" data-project="project-4">
                     <div class="project-icon">📦</div>
-                    <h3>Multi-City Security Project Delivery System</h3>
-                    <p>
-                        Overseeing security project delivery, pre-sales testing, and post-sales coordination
-                        across four cities (A, B, C, D), establishing a standardized delivery process to help
-                        the office achieve an annual ten-millions-level market revenue target.
+                    <h3 data-en="Multi-City Security Project Delivery System" data-zh="多地市安全项目交付体系">Multi-City Security Project Delivery System</h3>
+                    <p data-en="Overseeing security project delivery, pre-sales testing, and post-sales coordination across four cities (A, B, C, D), establishing a standardized delivery process to help the office achieve an annual ten-millions-level market revenue target."
+                       data-zh="统筹甲、乙、丙、丁四地市的安全项目交付、售前测试与售后协调，建立标准化交付流程，协助办事处达成每年千万级的市场盈利目标。">
+                        Overseeing security project delivery, pre-sales testing, and post-sales coordination across four cities (A, B, C, D), establishing a standardized delivery process to help the office achieve an annual ten-millions-level market revenue target.
                     </p>
                     <div class="project-tech">
-                        <span>Regional Coordination</span><span>Standardized Delivery</span><span>Pre-Sales Testing</span>
+                        <span data-en="Regional Coordination" data-zh="区域协调">Regional Coordination</span><span data-en="Standardized Delivery" data-zh="标准化交付">Standardized Delivery</span><span data-en="Pre-Sales Testing" data-zh="售前测试">Pre-Sales Testing</span>
                     </div>
-                    <button class="project-link project-detail-btn" data-target="project-4">View Case Details →</button>
+                    <button class="project-link project-detail-btn" data-target="project-4" data-en="View Case Details →" data-zh="查看案例详情 →">View Case Details →</button>
                 </div>
             </div>
 
@@ -268,25 +295,27 @@
     <section id="certs">
         <div class="container">
             <div class="section-header reveal">
-                <p class="section-tag">Certifications</p>
-                <h2>Professional Qualifications &amp; Honors</h2>
+                <p class="section-tag" data-en="Certifications" data-zh="证书荣誉">Certifications</p>
+                <h2 data-en="Professional Qualifications &amp; Honors" data-zh="专业资质与荣誉">Professional Qualifications &amp; Honors</h2>
                 <div class="line"></div>
             </div>
             <div class="resume-grid">
                 <div class="resume-block reveal">
-                    <h3>🏅 Professional Certifications</h3>
+                    <h3 data-en="🏅 Professional Certifications" data-zh="🏅 专业证书">🏅 Professional Certifications</h3>
                     <ul>
-                        <li><span class="rb-highlight">CCIE</span> — Enterprise Infrastructure</li>
-                        <li><span class="rb-highlight">PMP</span> — Project Management Professional</li>
-                        <li><span class="rb-highlight">ITSS</span> — Service Project Manager</li>
+                        <li data-en="CCIE — Enterprise Infrastructure" data-zh="CCIE — Enterprise Infrastructure（思科认证互联网专家）">CCIE — Enterprise Infrastructure</li>
+                        <li data-en="PMP — Project Management Professional" data-zh="PMP — Project Management Professional（项目管理专业人士）">PMP — Project Management Professional</li>
+                        <li data-en="ITSS — Service Project Manager" data-zh="ITSS 服务项目经理 — IT 服务项目经理认证">ITSS — Service Project Manager</li>
                     </ul>
                 </div>
                 <div class="resume-block reveal">
-                    <h3>🌟 Company Awards</h3>
+                    <h3 data-en="🌟 Company Awards" data-zh="🌟 企业荣誉">🌟 Company Awards</h3>
                     <ul>
-                        <li><span class="rb-highlight">Outstanding Innovation Engineer</span> (2025) — Company Outstanding Employee</li>
-                        <li><span class="rb-highlight">Company Striver</span> (2024)</li>
-                        <li><span class="rb-highlight">Cost Reduction &amp; Efficiency Award</span> (2022) — First-level Division Outstanding Employee</li>
+                        <li data-en="Outstanding Innovation Engineer (2025) — Company Outstanding Employee"
+                            data-zh="优秀创新工程师（2025）— 公司优秀员工">Outstanding Innovation Engineer (2025) — Company Outstanding Employee</li>
+                        <li data-en="Company Striver (2024)" data-zh="公司奋斗者（2024）">Company Striver (2024)</li>
+                        <li data-en="Cost Reduction &amp; Efficiency Award (2022) — First-level Division Outstanding Employee"
+                            data-zh="降本增效奖（2022）— 公司一级部门优秀员工">Cost Reduction &amp; Efficiency Award (2022) — First-level Division Outstanding Employee</li>
                     </ul>
                 </div>
             </div>
@@ -295,19 +324,19 @@
                     <div class="cert-icon">👑</div>
                     <h3>CCIE</h3>
                     <p class="cert-name">Enterprise Infrastructure</p>
-                    <span class="cert-badge">Cisco Certified Internetwork Expert</span>
+                    <span class="cert-badge" data-en="Cisco Certified Internetwork Expert" data-zh="思科认证互联网专家">Cisco Certified Internetwork Expert</span>
                 </div>
                 <div class="cert-card reveal">
                     <div class="cert-icon">📋</div>
                     <h3>PMP</h3>
                     <p class="cert-name">Project Management Professional</p>
-                    <span class="cert-badge">Project Management Professional</span>
+                    <span class="cert-badge" data-en="Project Management Professional" data-zh="项目管理专业人士">Project Management Professional</span>
                 </div>
                 <div class="cert-card reveal">
                     <div class="cert-icon">🛠️</div>
                     <h3>ITSS</h3>
-                    <p class="cert-name">Service Project Manager</p>
-                    <span class="cert-badge">IT Service Project Management</span>
+                    <p class="cert-name" data-en="Service Project Manager" data-zh="服务项目经理">Service Project Manager</p>
+                    <span class="cert-badge" data-en="IT Service Project Management" data-zh="IT 服务项目管理">IT Service Project Management</span>
                 </div>
             </div>
         </div>
@@ -317,25 +346,29 @@
     <section id="community">
         <div class="container">
             <div class="section-header reveal">
-                <p class="section-tag">Teaching &amp; Community</p>
-                <h2>Giving Back to Industry &amp; Education</h2>
+                <p class="section-tag" data-en="Teaching &amp; Community" data-zh="教学与社会贡献">Teaching &amp; Community</p>
+                <h2 data-en="Giving Back to Industry &amp; Education" data-zh="回馈行业与教育">Giving Back to Industry &amp; Education</h2>
                 <div class="line"></div>
             </div>
             <div class="resume-grid">
                 <div class="resume-block reveal">
-                    <h3>👨‍🏫 External Lecturer</h3>
+                    <h3 data-en="👨‍🏫 External Lecturer" data-zh="👨‍🏫 外聘讲师">👨‍🏫 External Lecturer</h3>
                     <ul>
-                        <li><span class="rb-highlight">Sep 2024 – Jul 2025</span> · External Lecturer at a local Vocational College</li>
-                        <li>Taught <span class="rb-highlight">Enterprise Security Implementation Practices</span></li>
-                        <li>Taught <span class="rb-highlight">Network Security Device Configuration &amp; Applications</span></li>
+                        <li data-en="Sep 2024 – Jul 2025 · External Lecturer at a local Vocational College"
+                            data-zh="2024.09 – 2025.07 · 某地市职业技术学院外聘讲师">Sep 2024 – Jul 2025 · External Lecturer at a local Vocational College</li>
+                        <li data-en="Taught Enterprise Security Implementation Practices" data-zh="主讲《企业安全建设实践》">Taught <span class="rb-highlight">Enterprise Security Implementation Practices</span></li>
+                        <li data-en="Taught Network Security Device Configuration &amp; Applications" data-zh="主讲《网络安全设备配置与应用》">Taught <span class="rb-highlight">Network Security Device Configuration &amp; Applications</span></li>
                     </ul>
                 </div>
                 <div class="resume-block reveal">
-                    <h3>🏆 Competition Question-Setting &amp; Mentoring</h3>
+                    <h3 data-en="🏆 Competition Question-Setting &amp; Mentoring" data-zh="🏆 赛事命题与指导">🏆 Competition Question-Setting &amp; Mentoring</h3>
                     <ul>
-                        <li>Led the preparation and question-setting of <span class="rb-highlight">six editions (2021–2026)</span> of a municipal cybersecurity competition</li>
-                        <li>Provided <span class="rb-highlight">technical guidance and question-setting</span> for competitions in cities B, C, and D</li>
-                        <li>Consistently giving back to industry and education with frontline practical experience</li>
+                        <li data-en="Led the preparation and question-setting of six editions (2021–2026) of a municipal cybersecurity competition"
+                            data-zh="主导 2021–2026 年六届某市级网络安全赛项的筹备与命题">Led the preparation and question-setting of <span class="rb-highlight">six editions (2021–2026)</span> of a municipal cybersecurity competition</li>
+                        <li data-en="Provided technical guidance and question-setting for competitions in cities B, C, and D"
+                            data-zh="协助乙、丙、丁地市开展赛事技术指导与命题工作">Provided <span class="rb-highlight">technical guidance and question-setting</span> for competitions in cities B, C, and D</li>
+                        <li data-en="Consistently giving back to industry and education with frontline practical experience"
+                            data-zh="持续将一线实战经验回馈于行业与教育事业">Consistently giving back to industry and education with frontline practical experience</li>
                     </ul>
                 </div>
             </div>
@@ -346,76 +379,76 @@
     <section id="skills">
         <div class="container">
             <div class="section-header reveal">
-                <p class="section-tag">Skills</p>
-                <h2>My Skill Matrix</h2>
+                <p class="section-tag" data-en="Skills" data-zh="核心能力">Skills</p>
+                <h2 data-en="My Skill Matrix" data-zh="我的能力矩阵">My Skill Matrix</h2>
                 <div class="line"></div>
             </div>
             <div class="skills-grid">
                 <div class="skill-category reveal">
                     <div class="category-icon">📚</div>
-                    <h3>Knowledge Areas</h3>
+                    <h3 data-en="Knowledge Areas" data-zh="知识领域">Knowledge Areas</h3>
                     <div class="skill-items">
-                        <span class="skill-tag">Master · Security Products</span>
-                        <span class="skill-tag">Familiar · Networking</span>
-                        <span class="skill-tag">Familiar · Mainstream Security</span>
-                        <span class="skill-tag">Basic · Databases</span>
-                        <span class="skill-tag">Basic · Operating Systems</span>
-                        <span class="skill-tag">Basic · Programming</span>
-                        <span class="skill-tag">Basic · TCP/IP</span>
-                        <span class="skill-tag">Basic · Servers/Hardware</span>
+                        <span class="skill-tag" data-en="Master · Security Products" data-zh="掌握 · 安全产品">Master · Security Products</span>
+                        <span class="skill-tag" data-en="Familiar · Networking" data-zh="熟悉 · 数通网络">Familiar · Networking</span>
+                        <span class="skill-tag" data-en="Familiar · Mainstream Security" data-zh="熟悉 · 主流安全领域">Familiar · Mainstream Security</span>
+                        <span class="skill-tag" data-en="Basic · Databases" data-zh="了解 · 数据库">Basic · Databases</span>
+                        <span class="skill-tag" data-en="Basic · Operating Systems" data-zh="了解 · 操作系统">Basic · Operating Systems</span>
+                        <span class="skill-tag" data-en="Basic · Programming" data-zh="了解 · 代码开发">Basic · Programming</span>
+                        <span class="skill-tag" data-en="Basic · TCP/IP" data-zh="了解 · TCP/IP">Basic · TCP/IP</span>
+                        <span class="skill-tag" data-en="Basic · Servers/Hardware" data-zh="了解 · 服务器/硬件">Basic · Servers/Hardware</span>
                     </div>
                 </div>
                 <div class="skill-category reveal">
                     <div class="category-icon">🛡️</div>
-                    <h3>Security Product Delivery</h3>
+                    <h3 data-en="Security Product Delivery" data-zh="安全产品交付">Security Product Delivery</h3>
                     <div class="skill-items">
                         <span class="skill-tag">NGFW</span>
                         <span class="skill-tag">AC</span>
                         <span class="skill-tag">WAF</span>
-                        <span class="skill-tag">APT Warning</span>
-                        <span class="skill-tag">Log Audit</span>
-                        <span class="skill-tag">DB Audit</span>
-                        <span class="skill-tag">Bastion Host</span>
+                        <span class="skill-tag" data-en="APT Warning" data-zh="APT 预警">APT Warning</span>
+                        <span class="skill-tag" data-en="Log Audit" data-zh="日志审计">Log Audit</span>
+                        <span class="skill-tag" data-en="DB Audit" data-zh="数据库审计">DB Audit</span>
+                        <span class="skill-tag" data-en="Bastion Host" data-zh="堡垒机">Bastion Host</span>
                         <span class="skill-tag">SOC</span>
                         <span class="skill-tag">KMS</span>
                         <span class="skill-tag">VPN (IPsec/SSL)</span>
-                        <span class="skill-tag">Signature Verification</span>
-                        <span class="skill-tag">Server Crypto Device</span>
-                        <span class="skill-tag">ICS Firewall</span>
-                        <span class="skill-tag">ICS Endpoint</span>
-                        <span class="skill-tag">ICS Audit</span>
-                        <span class="skill-tag">API Audit</span>
-                        <span class="skill-tag">API Gateway</span>
-                        <span class="skill-tag">Data Masking</span>
-                        <span class="skill-tag">Storage Security</span>
-                        <span class="skill-tag">Cloud Security</span>
+                        <span class="skill-tag" data-en="Signature Verification" data-zh="签名验签">Signature Verification</span>
+                        <span class="skill-tag" data-en="Server Crypto Device" data-zh="服务器密码机">Server Crypto Device</span>
+                        <span class="skill-tag" data-en="ICS Firewall" data-zh="工控防火墙">ICS Firewall</span>
+                        <span class="skill-tag" data-en="ICS Endpoint" data-zh="工控终端">ICS Endpoint</span>
+                        <span class="skill-tag" data-en="ICS Audit" data-zh="工控审计">ICS Audit</span>
+                        <span class="skill-tag" data-en="API Audit" data-zh="API 审计">API Audit</span>
+                        <span class="skill-tag" data-en="API Gateway" data-zh="API 网关">API Gateway</span>
+                        <span class="skill-tag" data-en="Data Masking" data-zh="数据脱敏">Data Masking</span>
+                        <span class="skill-tag" data-en="Storage Security" data-zh="存储安全">Storage Security</span>
+                        <span class="skill-tag" data-en="Cloud Security" data-zh="云安全">Cloud Security</span>
                     </div>
                 </div>
                 <div class="skill-category reveal">
                     <div class="category-icon">📦</div>
-                    <h3>Project Delivery &amp; Management</h3>
+                    <h3 data-en="Project Delivery &amp; Management" data-zh="项目交付与管理">Project Delivery &amp; Management</h3>
                     <div class="skill-items">
-                        <span class="skill-tag">Full-Stack Delivery</span>
-                        <span class="skill-tag">Delivery / Training / Support</span>
-                        <span class="skill-tag">Pre-Sales Testing</span>
-                        <span class="skill-tag">Requirement Analysis</span>
-                        <span class="skill-tag">Solution Implementation</span>
-                        <span class="skill-tag">Acceptance Delivery</span>
-                        <span class="skill-tag">Risk Management</span>
-                        <span class="skill-tag">Multi-Project Parallel</span>
+                        <span class="skill-tag" data-en="Full-Stack Delivery" data-zh="全栈交付">Full-Stack Delivery</span>
+                        <span class="skill-tag" data-en="Delivery / Training / Support" data-zh="交付 / 培训 / 售后">Delivery / Training / Support</span>
+                        <span class="skill-tag" data-en="Pre-Sales Testing" data-zh="售前测试">Pre-Sales Testing</span>
+                        <span class="skill-tag" data-en="Requirement Analysis" data-zh="需求梳理">Requirement Analysis</span>
+                        <span class="skill-tag" data-en="Solution Implementation" data-zh="方案落地">Solution Implementation</span>
+                        <span class="skill-tag" data-en="Acceptance Delivery" data-zh="验收交付">Acceptance Delivery</span>
+                        <span class="skill-tag" data-en="Risk Management" data-zh="风险管理">Risk Management</span>
+                        <span class="skill-tag" data-en="Multi-Project Parallel" data-zh="多项目并行">Multi-Project Parallel</span>
                     </div>
                 </div>
                 <div class="skill-category reveal">
                     <div class="category-icon">🤝</div>
-                    <h3>Tools, Methods &amp; Soft Skills</h3>
+                    <h3 data-en="Tools, Methods &amp; Soft Skills" data-zh="工具方法与软实力">Tools, Methods &amp; Soft Skills</h3>
                     <div class="skill-items">
-                        <span class="skill-tag">PMP / ITSS Methodology</span>
-                        <span class="skill-tag">Office Tools</span>
-                        <span class="skill-tag">AI Tools</span>
-                        <span class="skill-tag">Client Communication</span>
-                        <span class="skill-tag">Problem Analysis</span>
-                        <span class="skill-tag">Cross-Department Coordination</span>
-                        <span class="skill-tag">Continuous Learning</span>
+                        <span class="skill-tag" data-en="PMP / ITSS Methodology" data-zh="PMP / ITSS 方法论">PMP / ITSS Methodology</span>
+                        <span class="skill-tag" data-en="Office Tools" data-zh="IT 办公工具">Office Tools</span>
+                        <span class="skill-tag" data-en="AI Tools" data-zh="AI 工具">AI Tools</span>
+                        <span class="skill-tag" data-en="Client Communication" data-zh="客户沟通">Client Communication</span>
+                        <span class="skill-tag" data-en="Problem Analysis" data-zh="问题拆解">Problem Analysis</span>
+                        <span class="skill-tag" data-en="Cross-Department Coordination" data-zh="跨部门协调">Cross-Department Coordination</span>
+                        <span class="skill-tag" data-en="Continuous Learning" data-zh="持续学习">Continuous Learning</span>
                     </div>
                 </div>
             </div>
@@ -426,33 +459,36 @@
     <section id="softskills">
         <div class="container">
             <div class="section-header reveal">
-                <p class="section-tag">Professional Qualities</p>
-                <h2>Beyond Professional Expertise</h2>
+                <p class="section-tag" data-en="Professional Qualities" data-zh="职业素养">Professional Qualities</p>
+                <h2 data-en="Beyond Professional Expertise" data-zh="专业之外的持续追求">Beyond Professional Expertise</h2>
                 <div class="line"></div>
             </div>
             <div class="skills-grid">
                 <div class="skill-category reveal">
                     <div class="category-icon">🧠</div>
-                    <h3>Problem Solving</h3>
-                    <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 1rem;">
-                        Stay calm under pressure, break down and analyze problems to find solutions,
-                        and maintain rational judgment in complex delivery scenarios.
+                    <h3 data-en="Problem Solving" data-zh="问题解决">Problem Solving</h3>
+                    <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 1rem;"
+                       data-en="Stay calm under pressure, break down and analyze problems to find solutions, and maintain rational judgment in complex delivery scenarios."
+                       data-zh="临危不乱，善于拆解并分析问题、探寻解决路径，在复杂交付场景中保持冷静与理性判断。">
+                        Stay calm under pressure, break down and analyze problems to find solutions, and maintain rational judgment in complex delivery scenarios.
                     </p>
                 </div>
                 <div class="skill-category reveal">
                     <div class="category-icon">💬</div>
-                    <h3>Communication &amp; Collaboration</h3>
-                    <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 1rem;">
-                        Possess strong communication skills, accurately understand and grasp clients'
-                        real needs, and coordinate well among vendors, developers, and clients.
+                    <h3 data-en="Communication &amp; Collaboration" data-zh="沟通协作">Communication &amp; Collaboration</h3>
+                    <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 1rem;"
+                       data-en="Possess strong communication skills, accurately understand and grasp clients' real needs, and coordinate well among vendors, developers, and clients."
+                       data-zh="具备良好的沟通能力，能够准确理解并把握客户的真实诉求，妥善协调厂商、开发与客户等多方关系。">
+                        Possess strong communication skills, accurately understand and grasp clients' real needs, and coordinate well among vendors, developers, and clients.
                     </p>
                 </div>
                 <div class="skill-category reveal">
                     <div class="category-icon">🌱</div>
-                    <h3>Self-Discipline &amp; Growth</h3>
-                    <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 1rem;">
-                        Disciplined in self-management, reflective, and committed to continuous learning,
-                        growing steadily from junior to senior while giving back to products and the industry.
+                    <h3 data-en="Self-Discipline &amp; Growth" data-zh="自我驱动">Self-Discipline &amp; Growth</h3>
+                    <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 1rem;"
+                       data-en="Disciplined in self-management, reflective, and committed to continuous learning, growing steadily from junior to senior while giving back to products and the industry."
+                       data-zh="严于律己、每日三省吾身、坚持持续学习与进步，自初级一路成长为资深，并将实践经验不断回馈于产品与行业。">
+                        Disciplined in self-management, reflective, and committed to continuous learning, growing steadily from junior to senior while giving back to products and the industry.
                     </p>
                 </div>
             </div>
@@ -463,32 +499,31 @@
     <section id="contact">
         <div class="container">
             <div class="section-header reveal">
-                <p class="section-tag">Contact</p>
-                <h2>Let's Connect</h2>
+                <p class="section-tag" data-en="Contact" data-zh="联系我">Contact</p>
+                <h2 data-en="Let's Connect" data-zh="保持联系">Let's Connect</h2>
                 <div class="line"></div>
             </div>
             <div class="contact-grid">
                 <div class="contact-info reveal">
-                    <h3>Get In Touch</h3>
-                    <p>
-                        I am currently employed and always open to technical exchanges, industry
-                        collaboration, and teaching opportunities. Feel free to reach out regarding
-                        cybersecurity delivery, project collaboration, or competition question-setting.
+                    <h3 data-en="Get In Touch" data-zh="取得联系">Get In Touch</h3>
+                    <p data-en="I am currently employed and always open to technical exchanges, industry collaboration, and teaching opportunities. Feel free to reach out regarding cybersecurity delivery, project collaboration, or competition question-setting."
+                       data-zh="本人目前在职，始终对技术交流、行业合作与教学分享持开放态度，欢迎就网络安全交付、项目合作及赛事命题等话题随时与我联系。">
+                        I am currently employed and always open to technical exchanges, industry collaboration, and teaching opportunities. Feel free to reach out regarding cybersecurity delivery, project collaboration, or competition question-setting.
                     </p>
                     <div class="social-links">
                         <a href="https://github.com/KKevinfeng" class="social-link" target="_blank" rel="noopener">
                             <span>🐙</span> GitHub
                         </a>
                         <a href="mailto:fengkaiyusunqian@gmail.com" class="social-link">
-                            <span>✉️</span> Email
+                            <span>✉️</span> <span data-en="Email" data-zh="邮箱">Email</span>
                         </a>
                     </div>
                 </div>
                 <div class="contact-card reveal">
-                    <h3>Contact Information</h3>
+                    <h3 data-en="Contact Information" data-zh="联系信息">Contact Information</h3>
                     <div class="contact-item">
                         <span class="ci-icon">🏢</span>
-                        <span>Leading Cybersecurity Company</span>
+                        <span data-en="Leading Cybersecurity Company" data-zh="某头部网络安全企业">Leading Cybersecurity Company</span>
                     </div>
                     <div class="contact-item">
                         <span class="ci-icon">📧</span>
@@ -502,7 +537,8 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2026 Kevin · Senior Cybersecurity Engineer · Vendor Project Manager</p>
+            <p data-en="&copy; 2026 Kevin · Senior Cybersecurity Engineer · Vendor Project Manager"
+               data-zh="&copy; 2026 Kevin · 资深网络安全工程师 · 原厂项目经理">&copy; 2026 Kevin · Senior Cybersecurity Engineer · Vendor Project Manager</p>
         </div>
     </footer>
 
